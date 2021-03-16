@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Hr system</string>
+    <string name="prefStatus">loginstate</string>
+</resources>

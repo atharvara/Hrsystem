@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_toolbar"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+  <TextView
+
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="Bisleri International Pvt Ltd"
+      android:textStyle="bold"
+      android:textColor="#ffff00"
+      android:textSize="25dp"
+      android:textAlignment="center">
+
+  </TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="A BISLERI FOR EVERYONE AND EVERY OCCASION AND BE CONNECT FOR ALL HR INTERACTIONS"
+            android:textSize="15dp"
+            android:textColor="#fff"
+            android:textStyle="italic"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff00"
+            android:text="People Management"
+            android:textSize="25dp"
+            android:textStyle="bold"
+           android:layout_marginTop="10dp"
+            android:textAlignment="center">
+
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+
+        <Button
+            android:layout_width="86dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/talent_management"
+            android:padding="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+        </Button>
+        <Button
+            android:id="@+id/Admin"
+            android:layout_width="86dp"
+            android:layout_height="100dp"
+            android:background="@drawable/admin"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:padding="10dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp">
+        </Button>
+        <Button
+            android:id="@+id/HRMS_Tool"
+            android:layout_width="86dp"
+            android:layout_height="100dp"
+            android:background="@drawable/hrms_tool"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1">
+        </Button>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Talent Management"
+            android:textSize="15dp"
+            android:textColor="#FFF"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:textAlignment="center">
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Admin"
+            android:textColor="#fff"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:textAlignment="center"
+            android:textSize="15dp">
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="HRMS Tool"
+            android:layout_weight="1"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="1dp"
+            android:textColor="#fff"
+            android:layout_marginTop="5dp"
+            android:textAlignment="center"
+            android:textSize="15dp">
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Marketing Management"
+            android:textSize="25dp"
+            android:textAlignment="center"
+            android:textColor="#ffff00"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold">
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+
+        <Button
+            android:layout_width="86dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/illustration"
+            android:padding="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+        </Button>
+        <Button
+
+            android:layout_width="86dp"
+            android:layout_height="100dp"
+            android:background="@drawable/advertising"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:padding="10dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp">
+        </Button>
+        <Button
+
+            android:layout_width="86dp"
+            android:layout_height="100dp"
+            android:background="@drawable/space_design"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1">
+        </Button>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Illustration"
+            android:textSize="15dp"
+            android:textColor="#FFF"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:textAlignment="center">
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Advertising"
+            android:textColor="#fff"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:textAlignment="center"
+            android:textSize="15dp">
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Space Design"
+            android:layout_weight="1"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="#fff"
+            android:layout_marginTop="5dp"
+            android:textAlignment="center"
+            android:textSize="15dp">
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:weightSum="2">
+
+        <Button
+            android:layout_width="86dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="0.1"
+            android:background="@drawable/talent_management"
+            android:padding="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+        </Button>
+        <Button
+
+            android:layout_width="86dp"
+            android:layout_height="100dp"
+            android:background="@drawable/self_promo"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="80dp"
+            android:padding="10dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp">
+        </Button>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Client Diaries"
+        android:textSize="15dp"
+        android:textColor="#FFF"
+        android:layout_marginTop="6dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="30dp"
+        android:layout_weight="1"
+        android:textAlignment="center">
+    </TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Self Promo"
+        android:textColor="#fff"
+        android:layout_weight="1"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="50dp"
+        android:textSize="15dp">
+    </TextView>
+</LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

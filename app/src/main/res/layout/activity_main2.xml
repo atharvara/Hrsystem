@@ -1,0 +1,875 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+
+    android:padding="1dp"
+    android:background="@drawable/roundable">
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+       >
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"/>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <EditText
+                android:id="@+id/input_name"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+
+
+                android:hint="Name" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <EditText
+                android:id="@+id/input_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Address" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <EditText
+                android:id="@+id/input_city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+                android:hint="City" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_zipcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <EditText
+                android:id="@+id/input_zipcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="6"
+                android:hint="Zip code" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_country"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            >
+
+            <EditText
+                android:id="@+id/input_country"
+                android:layout_width="match_parent"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Country" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            >
+
+            <EditText
+                android:id="@+id/input_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:hint="Phone" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            >
+
+            <EditText
+                android:id="@+id/input_email"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email" />
+        </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_department"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                >
+
+                <EditText
+                    android:id="@+id/input_department"
+                    android:inputType="text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Department" />
+            </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+
+            <RadioGroup
+                android:id="@+id/radioGroup1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"  >              >
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="19dp"
+                    android:textColor="@color/colorPrimary"
+                    android:text="Gender" />
+                <RadioButton
+                    android:id="@+id/radioMale"
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Male" />
+
+
+                <RadioButton
+                    android:id="@+id/radiofemale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/radioGroup1"
+                    android:layout_below="@+id/radioGroup1"
+                    android:layout_marginLeft="15dp"
+                    android:text="Female" />
+
+
+            </RadioGroup>
+
+
+
+        </android.support.design.widget.TextInputLayout>
+
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/birth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_weight="3">
+
+                <EditText
+                    android:id="@+id/in_date"
+                    android:layout_width="136dp"
+                    android:layout_height="70dp"
+
+
+                    android:layout_weight="1"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:hint="Date Of Birth" />
+
+
+
+                <Button
+
+                    android:id="@+id/btn_date"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+                    android:background="@drawable/gradient_drawable"
+                    android:padding="16dp"
+                    android:text="SELECT DATE"
+                    android:textColor="#ffffff"
+                    android:textSize="14dp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/input_age1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="Age:"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18dp" />
+                <TextView
+                    android:id="@+id/input_age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text=""
+
+                    android:textSize="18dp" />
+            </LinearLayout>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_mstatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            >
+
+            <EditText
+                android:id="@+id/input_mstatus"
+
+                android:layout_width="match_parent"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+                android:layout_height="wrap_content"
+                android:hint="Marital Status" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_study"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:id="@+id/study"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingTop="10dp"
+                android:textSize="19dp"
+                android:textColor="@color/colorPrimary"
+                android:text="Current status of study/training :" />
+            <RadioGroup
+                android:id="@+id/radioGroup2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"  >              >
+
+                <RadioButton
+                    android:id="@+id/radioSYes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes" />
+
+
+                <RadioButton
+                    android:id="@+id/radioSNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="No" />
+
+
+            </RadioGroup>
+
+
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_Course"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:id="@+id/Course"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingTop="10dp"
+                android:textSize="19dp"
+                android:textColor="@color/colorPrimary"
+                android:text="Course/Program :" />
+            <RadioGroup
+                android:id="@+id/radioGroup3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:padding="5dp"
+                android:orientation="vertical"  >              >
+
+                <RadioButton
+                    android:id="@+id/radioFullTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Full Time" />
+
+
+                <RadioButton
+                    android:id="@+id/radioPartTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="Part Time" />
+
+                <RadioButton
+                    android:id="@+id/radioDistance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="Distance" />
+
+
+                <RadioButton
+                    android:id="@+id/radioother"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="Other" />
+
+            </RadioGroup>
+
+
+
+        </android.support.design.widget.TextInputLayout>
+        <TextView
+            android:id="@+id/tedu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="10dp"
+            android:textSize="25dp"
+            android:textColor="@color/colorPrimary"
+            android:text="Education Detail :" />
+        <ScrollView
+            android:id="@+id/layout"
+            android:layout_height="match_parent"
+            android:scrollbars="horizontal|vertical"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dip"
+            android:scrollbarStyle="outsideInset"
+            android:fillViewport="true">
+            <HorizontalScrollView
+                android:id="@+id/horizontalView"
+                android:layout_height="wrap_content"
+                android:scrollbars="horizontal|vertical"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="5dip">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_edu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TableRow
+                        android:id="@+id/tabla_cabecera"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"></TableRow>
+
+                    <TableLayout
+                        android:id="@+id/tabla_cuerpo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/roundable"
+                        >
+
+                        <TableRow
+                            android:id="@+id/tableRow1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/tcour"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimary"
+                                android:padding="5dp"
+                                android:text="Course"
+                                android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+
+                            <TextView
+                                android:id="@+id/tYear"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimary"
+                                android:padding="5dp"
+                                android:text="Year"
+                                android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+
+                            <TextView
+                                android:id="@+id/tresult"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimary"
+                                android:padding="5dp"
+                                android:text="Result"
+                                android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+                            <TextView
+                                android:id="@+id/tsclname"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimary"
+                                android:padding="5dp"
+                                android:text="School/College"
+                                android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+
+
+                        </TableRow>
+
+                        <TableRow
+
+                            android:id="@+id/tableRow2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <EditText
+                                android:id="@+id/input_course_scl"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:padding="5dp"
+                                android:hint="SSC"
+                                android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
+
+                            <EditText
+                                android:id="@+id/input_scl_year"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:padding="5dp"
+
+                                android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
+
+                            <EditText
+                                android:id="@+id/input_result_scl"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:padding="5dp"
+
+                                android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
+
+                            <EditText
+                                android:id="@+id/input_sclname"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:padding="5dp"
+
+                                android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
+
+
+
+
+
+                        </TableRow>
+
+                        <TableRow
+                            android:id="@+id/tableRow3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <EditText
+                                android:id="@+id/input_course_clg"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:padding="5dp"
+                                android:hint="Course"
+                                android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
+
+                            <EditText
+                                android:id="@+id/input_year_clg"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:padding="5dp"
+
+                                android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
+
+                            <EditText
+                                android:id="@+id/input_result_clg"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:padding="5dp"
+
+                                android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
+
+                            <EditText
+                                android:id="@+id/input_clgname"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:padding="5dp"
+
+                                android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
+
+
+
+                        </TableRow>
+
+                        <TableRow
+                            android:id="@+id/tableRow4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <EditText
+                                android:id="@+id/input_course_deg"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:padding="5dp"
+                                android:hint="Degree"
+                                android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
+
+                            <EditText
+                                android:id="@+id/input_year_deg"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:padding="5dp"
+
+                                android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
+
+                            <EditText
+                                android:id="@+id/input_result_deg"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:padding="5dp"
+
+                                android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
+
+                            <EditText
+                                android:id="@+id/input_degname"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:padding="5dp"
+                                android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
+
+
+                        </TableRow>
+
+                        <TableRow
+                            android:id="@+id/tableRow5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <EditText
+                                android:id="@+id/input_course_mst"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:padding="5dp"
+                                android:hint="Post Degree"
+                                android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
+
+                            <EditText
+                                android:id="@+id/input_year_mst"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:padding="5dp"
+
+                                android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
+
+                            <EditText
+                                android:id="@+id/input_result_mst"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:padding="5dp"
+
+                                android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
+
+                            <EditText
+                                android:id="@+id/input_mstname"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:padding="5dp"
+                                android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
+
+
+
+
+                        </TableRow>
+
+
+                    </TableLayout>
+
+
+
+                </android.support.design.widget.TextInputLayout>
+            </HorizontalScrollView>
+        </ScrollView>
+        <TextView
+            android:id="@+id/emp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="10dp"
+            android:textSize="25dp"
+            android:textColor="@color/colorPrimary"
+            android:text="Previous Employment Detail :" />
+        <ScrollView
+            android:id="@+id/layout1"
+            android:layout_height="match_parent"
+            android:scrollbars="horizontal|vertical"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dip"
+            android:scrollbarStyle="outsideInset"
+            android:fillViewport="true">
+            <HorizontalScrollView
+                android:id="@+id/horizontalView1"
+                android:layout_height="wrap_content"
+                android:scrollbars="horizontal|vertical"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="5dip">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_emp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TableRow
+                        android:id="@+id/tabla_cabecera1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"></TableRow>
+
+                    <TableLayout
+                        android:id="@+id/tabla_cuerpo1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        >
+
+                        <TableRow
+                            android:id="@+id/tableRow11"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/etitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimary"
+                                android:padding="5dp"
+                                android:text="Post Title"
+                                android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+
+                            <TextView
+                                android:id="@+id/eYear"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimary"
+                                android:padding="5dp"
+                                android:text="Year"
+                                android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+
+
+                            <TextView
+                                android:id="@+id/eComp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimary"
+                                android:padding="5dp"
+                                android:text="Company Name"
+                                android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+
+
+                        </TableRow>
+
+                        <TableRow
+
+                            android:id="@+id/tableRow22"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <EditText
+                                android:id="@+id/input_title1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:padding="5dp"
+
+                                android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
+
+                            <EditText
+                                android:id="@+id/input_emp_year"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:maxLength="6"
+                                android:padding="5dp"
+
+                                android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
+
+
+                            <EditText
+                                android:id="@+id/input_comp_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:padding="5dp"
+
+                                android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
+
+
+
+
+
+                        </TableRow>
+
+                        <TableRow
+                            android:id="@+id/tableRow33"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <EditText
+                                android:id="@+id/input_title2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:padding="5dp"
+
+                                android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
+
+                            <EditText
+                                android:id="@+id/input_year_emp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:maxLength="6"
+                                android:padding="5dp"
+
+                                android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
+
+
+                            <EditText
+                                android:id="@+id/input_comp_name2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:padding="5dp"
+
+                                android:textAppearance="?android:attr/textAppearanceMedium"></EditText>
+
+
+
+                        </TableRow>
+
+
+                    </TableLayout>
+
+
+
+                </android.support.design.widget.TextInputLayout>
+            </HorizontalScrollView>
+        </ScrollView>
+        <Button
+            android:id="@+id/btn_upload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Upload Letter"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
+            android:background="@drawable/gradient_drawable"
+
+            android:textColor="@android:color/white">
+
+        </Button>
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_marginTop="10dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_gravity="center"/>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Submit"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
+                android:background="@drawable/gradient_drawable"
+
+                android:textColor="@android:color/white">
+
+            </Button>
+
+
+        </android.support.design.widget.TextInputLayout>
+
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
