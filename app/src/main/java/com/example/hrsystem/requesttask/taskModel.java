@@ -2,11 +2,12 @@ package com.example.hrsystem.requesttask;
 
 public class taskModel {
     public String Task;
-    public String dueDate;
+    public String dueDate,sts;
 
-    public void task(String task,String dueDate){
+    public void task(String task,String dueDate,String sts){
         this.Task=task;
         this.dueDate=dueDate;
+        this.sts=sts;
     }
 
     public void setTask(String task) {
@@ -23,5 +24,13 @@ public class taskModel {
 
     public String getDueDate() {
         return dueDate;
+    }
+
+    public void setSts(String sts) {
+        this.sts = sts;
+    }
+
+    public String getSts() {
+        return sts;
     }
 }

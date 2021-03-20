@@ -84,7 +84,7 @@ public class viewTask extends AppCompatActivity {
                         taskModel Task=new taskModel();
                         Task.setTask(jo.getString("task"));
                         Task.setDueDate(jo.getString("dueDate"));
-
+                        Task.setSts(jo.getString("status"));
                         taskList.add(Task);
                     }
                 } catch (Exception ex) {

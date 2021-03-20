@@ -31,8 +31,9 @@ public class taskAdapter extends RecyclerView.Adapter<taskAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         taskModel Task=list.get(i);
-        viewHolder.tv1.setText(Task.getTask());
-        viewHolder.tv2.setText(Task.getDueDate());
+        viewHolder.tv1.setText("Task:-"+Task.getTask());
+        viewHolder.tv2.setText("Due Date:-"+Task.getDueDate());
+        viewHolder.tv3.setText(Task.getSts());
     }
 
     @Override
@@ -41,11 +42,12 @@ public class taskAdapter extends RecyclerView.Adapter<taskAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView tv1, tv2;
+        public TextView tv1, tv2,tv3;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tv1=itemView.findViewById(R.id.taskE);
             tv2=itemView.findViewById(R.id.dueDate);
+            tv3=itemView.findViewById(R.id.status);
         }
     }
 }
