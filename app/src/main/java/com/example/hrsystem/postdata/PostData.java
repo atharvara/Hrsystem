@@ -53,7 +53,6 @@ import com.example.hrsystem.R;
 
 public class PostData extends AppCompatActivity implements
         View.OnClickListener {
-    private ProgressDialog progress;
 
 
     TextView tvName;
@@ -128,7 +127,7 @@ public class PostData extends AppCompatActivity implements
     ImageView imageView;
     Bitmap bitmap;
     private Uri filePath;
-    private static String img[];
+
     public ProgressDialog pd;
 
     private int PICK_IMAGE_REQUEST = 1;
