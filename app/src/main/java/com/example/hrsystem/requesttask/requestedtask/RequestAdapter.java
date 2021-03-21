@@ -1,4 +1,4 @@
-package com.example.hrsystem.requesttask;
+package com.example.hrsystem.requesttask.requestedtask;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,14 +9,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.hrsystem.R;
-import com.example.hrsystem.requesttask.requestedtask.RequestModel;
+import com.example.hrsystem.requesttask.taskAdapter;
+import com.example.hrsystem.requesttask.taskModel;
 
 import java.util.List;
 
-public class taskAdapter extends RecyclerView.Adapter<taskAdapter.ViewHolder> {
+public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.ViewHolder> {
     private Context context;
-    private List<taskModel> list;
-    public taskAdapter(Context context, List<taskModel> list) {
+    private List<RequestModel> list;
+    public RequestAdapter(Context context, List<RequestModel> list) {
         this.context = context;
         this.list = list;
     }
@@ -24,17 +25,17 @@ public class taskAdapter extends RecyclerView.Adapter<taskAdapter.ViewHolder> {
 
     @NonNull
     @Override
-    public taskAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(context).inflate(R.layout.task_view, viewGroup, false);
-        return new ViewHolder(v);
+    public RequestAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View v = LayoutInflater.from(context).inflate(R.layout.view_request, viewGroup, false);
+        return new RequestAdapter.ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        taskModel Task=list.get(i);
-        viewHolder.tv1.setText("Task:-"+Task.getTask());
-        viewHolder.tv2.setText("Due Date:-"+Task.getDueDate());
-        viewHolder.tv3.setText(Task.getSts());
+        RequestModel requestModel=list.get(i);
+        viewHolder.tv1.setText("Task:-"+requestModel.getTask());
+        viewHolder.tv2.setText("Due Date:-"+requestModel.getDueDate());
+        viewHolder.tv3.setText(requestModel.getSts());
     }
 
     @Override

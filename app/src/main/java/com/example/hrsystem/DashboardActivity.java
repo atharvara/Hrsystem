@@ -30,6 +30,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.example.hrsystem.expense.ExpenseActivity;
 import com.example.hrsystem.leavemanagment.MainActivity;
 import com.example.hrsystem.requesttask.RequestPage;
+import com.example.hrsystem.requesttask.requestedtask.viewRequestedTask;
 import com.example.hrsystem.requesttask.viewTask;
 
 import java.io.BufferedReader;
@@ -87,6 +88,7 @@ leave=(Button) findViewById(R.id.leave);
 
         leave.setOnClickListener(v -> startActivity(new Intent(DashboardActivity.this, MainActivity.class)));
         task.setOnClickListener(v -> startActivity(new Intent(DashboardActivity.this, viewTask.class)));
+        requestTxt.setOnClickListener(v -> startActivity(new Intent(DashboardActivity.this, viewRequestedTask.class)));
         employee.setOnClickListener(v -> startActivity(new Intent(DashboardActivity.this,MainPage.class)));
         expense.setOnClickListener(v -> startActivity(new Intent(DashboardActivity.this, ExpenseActivity.class)));
         Request.setOnClickListener(v -> startActivity(new Intent(DashboardActivity.this, RequestPage.class)));
