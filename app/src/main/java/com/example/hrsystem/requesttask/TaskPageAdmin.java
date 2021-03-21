@@ -1,11 +1,13 @@
 package com.example.hrsystem.requesttask;
 
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -18,14 +20,17 @@ import com.android.volley.toolbox.StringRequest;
 import com.example.hrsystem.MySingleton;
 import com.example.hrsystem.R;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
 public class TaskPageAdmin extends AppCompatActivity {
-    EditText task,dueDate,Empid;
+    EditText task,txtDate,Empid;
     String txtTask,txtDue,txtEmp;
     String[] EmpId;
     Button sub;
+    int mYear,mMonth,mDay;
+    Button btnDatePicker;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,17 +39,46 @@ public class TaskPageAdmin extends AppCompatActivity {
         toolbar.setTitle("Assign Task");
         setSupportActionBar(toolbar);
         task=(EditText)findViewById(R.id.txtTask);
-        dueDate=(EditText)findViewById(R.id.dueDate);
+        txtDate=(EditText)findViewById(R.id.in_date);
         Empid=(EditText)findViewById(R.id.empID);
         sub=(Button)findViewById(R.id.btnSubmit);
+        btnDatePicker=(Button)findViewById(R.id.btn_date);
 
+        btnDatePicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Calendar c = Calendar.getInstance();
+                mYear = c.get(Calendar.YEAR);
+                mMonth = c.get(Calendar.MONTH);
+                mDay = c.get(Calendar.DAY_OF_MONTH);
+
+
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(TaskPageAdmin.this,
+                        new DatePickerDialog.OnDateSetListener() {
+
+                            @Override
+                            public void onDateSet(DatePicker view, int year,
+                                                  int monthOfYear, int dayOfMonth) {
+
+
+                                txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+
+                            }
+
+                        }, mYear, mMonth, mDay);
+
+                datePickerDialog.show();
+
+            }
+        });
         sub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 txtTask=task.getText().toString();
                 txtEmp=Empid.getText().toString();
                 EmpId=txtEmp.split(",");
-                txtDue=dueDate.getText().toString();
+                txtDue=txtDate.getText().toString();
                 int i=0;
                 while (i<EmpId.length) {
 
