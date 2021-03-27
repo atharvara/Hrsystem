@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
@@ -40,7 +41,7 @@ import java.util.Map;
 
 public class DashboardActivity extends AppCompatActivity {
     private ImageButton imageButton;
-    Button employee,expense,leave,calendeR,Request;
+    Button employee,expense,leave,calendeR,Request,chat;
     SharedPreferences sharedPreferences;
     TextView task,requestTxt;
     public int mYear, mMonth, mDay;
@@ -56,6 +57,7 @@ leave=(Button) findViewById(R.id.leave);
         toolbar.setTitle("Dashboard");
         setSupportActionBar(toolbar);
         calendeR=(Button)findViewById(R.id.calender);
+        chat=(Button) findViewById(R.id.chat);
         Request=(Button)findViewById(R.id.request);
         task=(TextView)findViewById(R.id.task);
         requestTxt=(TextView)findViewById(R.id.requested);
@@ -92,6 +94,16 @@ leave=(Button) findViewById(R.id.leave);
         employee.setOnClickListener(v -> startActivity(new Intent(DashboardActivity.this,MainPage.class)));
         expense.setOnClickListener(v -> startActivity(new Intent(DashboardActivity.this, ExpenseActivity.class)));
         Request.setOnClickListener(v -> startActivity(new Intent(DashboardActivity.this, RequestPage.class)));
+        chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentWhatsapp = new Intent(Intent.ACTION_VIEW);
+                String url = "https://chat.whatsapp.com/GB8NYA8uxBN2CC8gADsyAm";
+                intentWhatsapp.setData(Uri.parse(url));
+                intentWhatsapp.setPackage("com.whatsapp");
+                startActivity(intentWhatsapp);
+            }
+        });
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

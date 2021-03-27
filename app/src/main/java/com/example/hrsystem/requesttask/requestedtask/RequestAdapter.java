@@ -36,6 +36,13 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.ViewHold
         viewHolder.tv1.setText("Task:-"+requestModel.getTask());
         viewHolder.tv2.setText("Due Date:-"+requestModel.getDueDate());
         viewHolder.tv3.setText(requestModel.getSts());
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String task=requestModel.getTask();
+
+            }
+        });
     }
 
     @Override

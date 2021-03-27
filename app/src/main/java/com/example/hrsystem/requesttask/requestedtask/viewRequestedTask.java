@@ -56,6 +56,7 @@ public class viewRequestedTask extends AppCompatActivity {
         mList.setLayoutManager(linearLayoutManager);
         mList.setAdapter(adapter);
         Viewtask(globalClass.getEmpid());
+
     }
     public void Viewtask(String emp_id){
         final ProgressDialog progressDialog = new ProgressDialog(viewRequestedTask.this);
