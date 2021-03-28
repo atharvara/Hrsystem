@@ -50,7 +50,7 @@ public class DashboardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-leave=(Button) findViewById(R.id.leave);
+        leave=(Button) findViewById(R.id.leave);
         employee=(Button)findViewById(R.id.employee);
         expense=(Button)findViewById(R.id.expense);
         Toolbar toolbar=findViewById(R.id.toolbar);
