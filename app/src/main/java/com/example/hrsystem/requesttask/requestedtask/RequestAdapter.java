@@ -1,12 +1,15 @@
 package com.example.hrsystem.requesttask.requestedtask;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.hrsystem.R;
 import com.example.hrsystem.requesttask.taskAdapter;
@@ -39,8 +42,15 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.ViewHold
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String task=requestModel.getTask();
-
+                String task=viewHolder.tv1.getText().toString();
+                String due=viewHolder.tv2.getText().toString();
+                due=due.substring(10);
+               task=task.substring(6);
+                Intent intent= new Intent(context,RequestPage.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("task",task);
+                intent.putExtra("due",due);
+                context.startActivity(intent);
             }
         });
     }

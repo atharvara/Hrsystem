@@ -55,8 +55,14 @@ public class viewRequestedTask extends AppCompatActivity {
         mList.setHasFixedSize(true);
         mList.setLayoutManager(linearLayoutManager);
         mList.setAdapter(adapter);
-        Viewtask(globalClass.getEmpid());
 
+
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //your code here
+        Viewtask(globalClass.getEmpid());
     }
     public void Viewtask(String emp_id){
         final ProgressDialog progressDialog = new ProgressDialog(viewRequestedTask.this);

@@ -28,6 +28,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.example.hrsystem.employee.EmpList;
 import com.example.hrsystem.expense.ExpenseActivity;
 import com.example.hrsystem.leavemanagment.MainActivity;
 import com.example.hrsystem.requesttask.RequestPage;
@@ -60,8 +61,9 @@ public class DashboardActivity extends AppCompatActivity {
         chat=(Button) findViewById(R.id.chat);
         Request=(Button)findViewById(R.id.request);
         task=(TextView)findViewById(R.id.task);
-        requestTxt=(TextView)findViewById(R.id.requested);
+        requestTxt= findViewById(R.id.requested);
         globalClass=(GlobalClass)getApplicationContext();
+
 
         findTask(globalClass.getEmpid());
         findRequest(globalClass.getEmpid());
@@ -91,7 +93,7 @@ public class DashboardActivity extends AppCompatActivity {
         leave.setOnClickListener(v -> startActivity(new Intent(DashboardActivity.this, MainActivity.class)));
         task.setOnClickListener(v -> startActivity(new Intent(DashboardActivity.this, viewTask.class)));
         requestTxt.setOnClickListener(v -> startActivity(new Intent(DashboardActivity.this, viewRequestedTask.class)));
-        employee.setOnClickListener(v -> startActivity(new Intent(DashboardActivity.this,MainPage.class)));
+        employee.setOnClickListener(v -> startActivity(new Intent(DashboardActivity.this, EmpList.class)));
         expense.setOnClickListener(v -> startActivity(new Intent(DashboardActivity.this, ExpenseActivity.class)));
         Request.setOnClickListener(v -> startActivity(new Intent(DashboardActivity.this, RequestPage.class)));
         chat.setOnClickListener(new View.OnClickListener() {
@@ -104,6 +106,13 @@ public class DashboardActivity extends AppCompatActivity {
                 startActivity(intentWhatsapp);
             }
         });
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //your code here
+        findTask(globalClass.getEmpid());
+        findRequest(globalClass.getEmpid());
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -11,6 +11,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
     private Button button;
     private Button button2;
+    Button talentM;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        talentM=(Button)findViewById(R.id.talentM);
 
         button=(Button)findViewById(R.id.HRMS_Tool);
         button.setOnClickListener(new View.OnClickListener() {
@@ -42,6 +43,12 @@ public class MainActivity extends AppCompatActivity {
             private void openAdminlogin() {
                 Intent intent = new Intent(MainActivity.this,AdminLogin.class);
                 startActivity(intent);
+            }
+        });
+        talentM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,MainPage.class));
             }
         });
     }
