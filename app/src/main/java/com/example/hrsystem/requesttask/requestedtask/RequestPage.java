@@ -60,12 +60,7 @@ public class RequestPage extends AppCompatActivity {
 
 
     }
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(RequestPage.this, viewRequestedTask.class);
-        startActivity(intent);
-        finish();
-    }
+
 
     public void decison(String task,String EmpId,String decision){
         final ProgressDialog progressDialog = new ProgressDialog(RequestPage.this);
@@ -81,8 +76,6 @@ public class RequestPage extends AppCompatActivity {
                 progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
                 if (response.equals("Declined")){
-                    Intent intent = new Intent(RequestPage.this, viewRequestedTask.class);
-                    startActivity(intent);
                     finish();
                 }
 

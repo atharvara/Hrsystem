@@ -50,6 +50,7 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.ViewHold
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("task",task);
                 intent.putExtra("due",due);
+
                 context.startActivity(intent);
             }
         });

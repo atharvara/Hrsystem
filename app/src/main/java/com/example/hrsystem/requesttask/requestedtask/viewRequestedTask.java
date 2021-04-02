@@ -1,6 +1,7 @@
 package com.example.hrsystem.requesttask.requestedtask;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
@@ -55,14 +56,9 @@ public class viewRequestedTask extends AppCompatActivity {
         mList.setHasFixedSize(true);
         mList.setLayoutManager(linearLayoutManager);
         mList.setAdapter(adapter);
-
-
-    }
-    @Override
-    protected void onResume() {
-        super.onResume();
-        //your code here
         Viewtask(globalClass.getEmpid());
+
+
     }
     public void Viewtask(String emp_id){
         final ProgressDialog progressDialog = new ProgressDialog(viewRequestedTask.this);
