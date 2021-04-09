@@ -25,6 +25,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.example.hrsystem.GlobalClass;
 import com.example.hrsystem.MySingleton;
 import com.example.hrsystem.R;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -37,7 +38,7 @@ import java.util.Map;
 public class viewTask extends AppCompatActivity {
     GlobalClass globalClass;
     private RecyclerView mList;
-
+    private ShimmerFrameLayout mShimmerViewContainer;
     private LinearLayoutManager linearLayoutManager;
     private DividerItemDecoration dividerItemDecoration;
     public List<taskModel> taskList;
@@ -51,6 +52,7 @@ public class viewTask extends AppCompatActivity {
         toolbar.setTitle("Task");
         setSupportActionBar(toolbar);
         mList=findViewById(R.id.recylerViewviewApp);
+        mShimmerViewContainer = findViewById(R.id.shimmer_view_container);
         globalClass=(GlobalClass)getApplicationContext();
         taskList=  new ArrayList<>();
         adapter = new taskAdapter(getApplicationContext(),taskList);
@@ -61,15 +63,15 @@ public class viewTask extends AppCompatActivity {
         mList.setLayoutManager(linearLayoutManager);
         mList.setAdapter(adapter);
         Viewtask(globalClass.getEmpid());
-
+        mShimmerViewContainer.startShimmerAnimation();
     }
     public void Viewtask(String emp_id){
-        final ProgressDialog progressDialog = new ProgressDialog(viewTask.this);
+       /* final ProgressDialog progressDialog = new ProgressDialog(viewTask.this);
         progressDialog.setTitle("Wait");
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.setIndeterminate(false);
-        progressDialog.show();
+        progressDialog.show();*/
         String uRl = "https://shinetech.site/shinetech.site/hrmskbp/RequestTask/ViewTask.php";
         StringRequest request = new StringRequest(Request.Method.POST, uRl, new Response.Listener<String>() {
             @Override
@@ -90,14 +92,17 @@ public class viewTask extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
                 }
                 adapter.notifyDataSetChanged();
-                progressDialog.dismiss();
+               // progressDialog.dismiss();
+                mShimmerViewContainer.stopShimmerAnimation();
+                mShimmerViewContainer.setVisibility(View.GONE);
             }
 
         },new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(viewTask.this, error.toString(), Toast.LENGTH_SHORT).show();
-                progressDialog.dismiss();
+                mShimmerViewContainer.stopShimmerAnimation();
+                mShimmerViewContainer.setVisibility(View.GONE);
             }
         }){
             @Override
@@ -114,7 +119,10 @@ public class viewTask extends AppCompatActivity {
         MySingleton.getmInstance(viewTask.this).addToRequestQueue(request);
 
     }
-
-
-
+    public void onPause() {
+        mShimmerViewContainer.stopShimmerAnimation();
+        super.onPause();
     }
+
+
+}

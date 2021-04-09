@@ -122,6 +122,9 @@ public class viewRequestedTask extends AppCompatActivity {
 
     }
 
-
+    public void onPause() {
+        mShimmerViewContainer.stopShimmerAnimation();
+        super.onPause();
+    }
 
 }
