@@ -6,4 +6,5 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="black">#000000</color>
     <color name="WhiteSmoke">#F5F5F5</color>
+    <color name="background">#DDDDDD</color>
 </resources>

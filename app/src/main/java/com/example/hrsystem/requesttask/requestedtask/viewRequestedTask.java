@@ -8,6 +8,8 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -22,6 +24,7 @@ import com.example.hrsystem.R;
 import com.example.hrsystem.requesttask.taskAdapter;
 import com.example.hrsystem.requesttask.taskModel;
 import com.example.hrsystem.requesttask.viewTask;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -39,6 +42,7 @@ public class viewRequestedTask extends AppCompatActivity {
     private DividerItemDecoration dividerItemDecoration;
     public List<RequestModel> taskList;
     private RecyclerView.Adapter adapter;
+    private ShimmerFrameLayout mShimmerViewContainer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +50,9 @@ public class viewRequestedTask extends AppCompatActivity {
         Toolbar toolbar=findViewById(R.id.toolbar);
         toolbar.setTitle("Request");
         setSupportActionBar(toolbar);
-        mList=findViewById(R.id.recylerViewviewApp);
         globalClass=(GlobalClass)getApplicationContext();
+        mList=findViewById(R.id.recylerViewviewApp);
+        mShimmerViewContainer = findViewById(R.id.shimmer_view_container);
         taskList=  new ArrayList<>();
         adapter = new RequestAdapter(getApplicationContext(),taskList);
         linearLayoutManager = new LinearLayoutManager(this);
@@ -57,16 +62,17 @@ public class viewRequestedTask extends AppCompatActivity {
         mList.setLayoutManager(linearLayoutManager);
         mList.setAdapter(adapter);
         Viewtask(globalClass.getEmpid());
+        mShimmerViewContainer.startShimmerAnimation();
 
 
     }
     public void Viewtask(String emp_id){
-        final ProgressDialog progressDialog = new ProgressDialog(viewRequestedTask.this);
+        /*final ProgressDialog progressDialog = new ProgressDialog(viewRequestedTask.this);
         progressDialog.setTitle("Wait");
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.setIndeterminate(false);
-        progressDialog.show();
+        progressDialog.show();*/
         String uRl = "https://shinetech.site/shinetech.site/hrmskbp/RequestTask/ViewRequest.php";
         StringRequest request = new StringRequest(Request.Method.POST, uRl, new Response.Listener<String>() {
             @Override
@@ -87,14 +93,18 @@ public class viewRequestedTask extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
                 }
                 adapter.notifyDataSetChanged();
-                progressDialog.dismiss();
+                // progressDialog.dismiss();
+                mShimmerViewContainer.stopShimmerAnimation();
+                mShimmerViewContainer.setVisibility(View.GONE);
             }
 
         },new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(viewRequestedTask.this, error.toString(), Toast.LENGTH_SHORT).show();
-                progressDialog.dismiss();
+                //  progressDialog.dismiss();
+                mShimmerViewContainer.stopShimmerAnimation();
+                mShimmerViewContainer.setVisibility(View.GONE);
             }
         }){
             @Override
@@ -111,4 +121,7 @@ public class viewRequestedTask extends AppCompatActivity {
         MySingleton.getmInstance(viewRequestedTask.this).addToRequestQueue(request);
 
     }
+
+
+
 }

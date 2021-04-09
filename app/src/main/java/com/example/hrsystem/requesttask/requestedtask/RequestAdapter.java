@@ -45,7 +45,7 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.ViewHold
                 String task=viewHolder.tv1.getText().toString();
                 String due=viewHolder.tv2.getText().toString();
                 due=due.substring(10);
-               task=task.substring(6);
+                task=task.substring(6);
                 Intent intent= new Intent(context,RequestPage.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("task",task);
