@@ -60,9 +60,21 @@ public class RequestPage extends AppCompatActivity {
                             @Override
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
+                                if(monthOfYear < 10 && dayOfMonth<10){
 
+                                    txtDate.setText(year + "/0" + (monthOfYear + 1) + "/0" + dayOfMonth);
+                                }
+                                else if(monthOfYear < 10 && dayOfMonth >10){
 
-                                txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                                    txtDate.setText(year + "/0" + (monthOfYear + 1) + "/" + dayOfMonth);
+                                }
+                                else if(monthOfYear > 10 && dayOfMonth <10){
+
+                                    txtDate.setText(year + "/" + (monthOfYear + 1) + "/0" + dayOfMonth);
+                                }
+                                else{
+                                    txtDate.setText(year + "/" + (monthOfYear + 1) + "/" + dayOfMonth);
+                                }
 
                             }
 

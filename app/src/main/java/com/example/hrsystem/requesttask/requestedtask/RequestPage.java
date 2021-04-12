@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -23,8 +24,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RequestPage extends AppCompatActivity {
-    String task,dueD;
-    TextView Task,dueDate;
+    String task,dueD,Sts;
+    TextView Task,dueDate,sts;
     GlobalClass globalClass;
     String EmpId;
     Button decline,accept;
@@ -32,21 +33,40 @@ public class RequestPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_page2);
+        Toolbar toolbar=findViewById(R.id.toolbar);
+        toolbar.setTitle("Request Page");
+        setSupportActionBar(toolbar);
         task=getIntent().getStringExtra("task");
+        sts=findViewById(R.id.sts);
         dueD=getIntent().getStringExtra("due");
+        Sts=getIntent().getStringExtra("Sts");
         Task=(TextView)findViewById(R.id.task);
+        sts.setText("Status:-"+Sts);
         dueDate=(TextView)findViewById(R.id.dueDate);
         Task.setText("Task:-"+" "+task);
         dueDate.setText("Due Date:-"+dueD);
+
         globalClass=(GlobalClass)getApplicationContext();
         EmpId=globalClass.getEmpid();
         decline=(Button)findViewById(R.id.decline);
         accept=(Button)findViewById(R.id.acc);
+        if (Sts.equals("Accepted")){
+            accept.setVisibility(View.GONE);
+            decline.setVisibility(View.GONE);
+            accept.setText("Completed");
+            accept.setVisibility(View.VISIBLE);
+        }
         accept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String decison="Accepted";
-                decison(task,EmpId,decison);
+                if (accept.getText().equals("Accept")) {
+                    String decison = "Accepted";
+                    decison(task, EmpId, decison);
+
+                }else if(accept.getText().equals("Completed")){
+                    String decison = "Completed";
+                    decison(task, EmpId, decison);
+                }
             }
         });
         decline.setOnClickListener(new View.OnClickListener() {
