@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".requesttask.requestedtask.AllDataRequest"></activity>
+        <activity android:name=".requesttask.AllDataTask"></activity>
+        <activity android:name=".requesttask.requestedtask.AllDataRequest" />
         <activity android:name=".employee.EmpList" />
         <activity android:name=".requesttask.requestedtask.RequestPage" />
         <activity android:name=".requesttask.requestedtask.viewRequestedTask" />

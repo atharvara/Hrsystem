@@ -66,7 +66,7 @@ public class viewRequestedTask extends AppCompatActivity {
         mList.setHasFixedSize(true);
         mList.setLayoutManager(linearLayoutManager);
         mList.setAdapter(adapter);
-        Viewtask(globalClass.getEmpid());
+
         mShimmerViewContainer.startShimmerAnimation();
 
 
@@ -131,6 +131,15 @@ public class viewRequestedTask extends AppCompatActivity {
         mShimmerViewContainer.stopShimmerAnimation();
         super.onPause();
     }
+    public void onResume() {
+        super.onResume();
+        taskList.clear();
+        Viewtask(globalClass.getEmpid());
+
+        adapter.notifyDataSetChanged();
+
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater= getMenuInflater();

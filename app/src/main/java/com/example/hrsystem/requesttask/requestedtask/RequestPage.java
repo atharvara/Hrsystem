@@ -34,7 +34,7 @@ public class RequestPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_page2);
         Toolbar toolbar=findViewById(R.id.toolbar);
-        toolbar.setTitle("Request Page");
+        toolbar.setTitle("Task Overview Page");
         setSupportActionBar(toolbar);
         task=getIntent().getStringExtra("task");
         sts=findViewById(R.id.sts);
@@ -95,9 +95,7 @@ public class RequestPage extends AppCompatActivity {
             public void onResponse(String response) {
                 progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
-                if (response.equals("Declined")){
-                    finish();
-                }
+                finish();
 
             }
 

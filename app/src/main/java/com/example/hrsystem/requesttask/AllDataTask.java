@@ -1,4 +1,4 @@
-package com.example.hrsystem.requesttask.requestedtask;
+package com.example.hrsystem.requesttask;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +18,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.example.hrsystem.GlobalClass;
 import com.example.hrsystem.MySingleton;
 import com.example.hrsystem.R;
+import com.example.hrsystem.requesttask.requestedtask.AllDataAdapter;
+import com.example.hrsystem.requesttask.requestedtask.AllDataModel;
+import com.example.hrsystem.requesttask.requestedtask.AllDataRequest;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
 import org.json.JSONArray;
@@ -28,19 +31,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AllDataRequest extends AppCompatActivity {
+public class AllDataTask extends AppCompatActivity {
     GlobalClass globalClass;
     private RecyclerView mList;
 
     private LinearLayoutManager linearLayoutManager;
     private DividerItemDecoration dividerItemDecoration;
-    public List<AllDataModel> taskList;
+    public List<AllDataTaskModel> taskList;
     private RecyclerView.Adapter adapter;
     private ShimmerFrameLayout mShimmerViewContainer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_data_request);
+        setContentView(R.layout.activity_all_data_task);
         Toolbar toolbar=findViewById(R.id.toolbar);
         toolbar.setTitle("Request");
         setSupportActionBar(toolbar);
@@ -48,7 +51,7 @@ public class AllDataRequest extends AppCompatActivity {
         mList=findViewById(R.id.recylerView);
         mShimmerViewContainer = findViewById(R.id.shimmer_view_container);
         taskList=  new ArrayList<>();
-        adapter = new AllDataAdapter(getApplicationContext(),taskList);
+        adapter = new AllDataTaskAdapter(getApplicationContext(),taskList);
         linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         dividerItemDecoration = new DividerItemDecoration(mList.getContext(),0);
@@ -56,16 +59,9 @@ public class AllDataRequest extends AppCompatActivity {
         mList.setLayoutManager(linearLayoutManager);
         mList.setAdapter(adapter);
         mShimmerViewContainer.startShimmerAnimation();
-
     }
     public void Viewtask(String emp_id){
-        /*final ProgressDialog progressDialog = new ProgressDialog(viewRequestedTask.this);
-        progressDialog.setTitle("Wait");
-        progressDialog.setCancelable(false);
-        progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.setIndeterminate(false);
-        progressDialog.show();*/
-        String uRl = "https://shinetech.site/shinetech.site/hrmskbp/RequestTask/allViewRequ.php";
+        String uRl = "https://shinetech.site/shinetech.site/hrmskbp/RequestTask/allViewTask.php";
         StringRequest request = new StringRequest(Request.Method.POST, uRl, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -74,10 +70,10 @@ public class AllDataRequest extends AppCompatActivity {
                     JSONObject jo = null;
                     for (int i = 0; i < ja.length(); i++) {
                         jo = ja.getJSONObject(i);
-                        AllDataModel Task=new AllDataModel();
+                        AllDataTaskModel Task=new AllDataTaskModel();
                         Task.setTask(jo.getString("task"));
                         Task.setDueDate(jo.getString("dueDate"));
-                        Task.setSts(jo.getString("sts"));
+                        Task.setSts(jo.getString("status"));
                         taskList.add(Task);
                     }
                 } catch (Exception ex) {
@@ -93,7 +89,7 @@ public class AllDataRequest extends AppCompatActivity {
         },new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(AllDataRequest.this, error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(AllDataTask.this, error.toString(), Toast.LENGTH_SHORT).show();
                 //  progressDialog.dismiss();
                 mShimmerViewContainer.stopShimmerAnimation();
                 mShimmerViewContainer.setVisibility(View.GONE);
@@ -110,7 +106,7 @@ public class AllDataRequest extends AppCompatActivity {
 
 
         request.setRetryPolicy(new DefaultRetryPolicy(30000,DefaultRetryPolicy.DEFAULT_MAX_RETRIES,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getmInstance(AllDataRequest.this).addToRequestQueue(request);
+        MySingleton.getmInstance(AllDataTask.this).addToRequestQueue(request);
 
     }
 

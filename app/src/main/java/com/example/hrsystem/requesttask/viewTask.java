@@ -2,6 +2,7 @@ package com.example.hrsystem.requesttask;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -25,6 +29,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.example.hrsystem.GlobalClass;
 import com.example.hrsystem.MySingleton;
 import com.example.hrsystem.R;
+import com.example.hrsystem.requesttask.requestedtask.AllDataRequest;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
 import org.json.JSONArray;
@@ -62,7 +67,6 @@ public class viewTask extends AppCompatActivity {
         mList.setHasFixedSize(true);
         mList.setLayoutManager(linearLayoutManager);
         mList.setAdapter(adapter);
-        Viewtask(globalClass.getEmpid());
         mShimmerViewContainer.startShimmerAnimation();
     }
     public void Viewtask(String emp_id){
@@ -122,6 +126,30 @@ public class viewTask extends AppCompatActivity {
     public void onPause() {
         mShimmerViewContainer.stopShimmerAnimation();
         super.onPause();
+    }
+    public void onResume() {
+        super.onResume();
+        taskList.clear();
+        Viewtask(globalClass.getEmpid());
+
+        adapter.notifyDataSetChanged();
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater= getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId()==R.id.all){
+            startActivity(new Intent(getApplicationContext(), AllDataTask.class));
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 
