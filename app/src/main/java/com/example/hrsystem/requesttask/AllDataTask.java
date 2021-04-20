@@ -117,7 +117,9 @@ public class AllDataTask extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        taskList.clear();
         //your code here
         Viewtask(globalClass.getEmpid());
+        adapter.notifyDataSetChanged();
     }
 }

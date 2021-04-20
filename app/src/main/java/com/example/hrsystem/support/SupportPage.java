@@ -26,6 +26,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.example.hrsystem.GlobalClass;
 import com.example.hrsystem.MySingleton;
 import com.example.hrsystem.R;
 import com.example.hrsystem.expense.ExpenseActivity;
@@ -43,6 +44,7 @@ public class SupportPage extends AppCompatActivity {
     ImageView imageView;
     Button submit;
     Bitmap bitmap;
+    GlobalClass globalClass;
     private Uri filePath;
     private int PICK_IMAGE_REQUEST = 1;
     @Override
@@ -56,10 +58,12 @@ public class SupportPage extends AppCompatActivity {
         empname=(EditText)findViewById(R.id.emp_name);
         email=(EditText)findViewById(R.id.email);
         issue=(EditText)findViewById(R.id.issue);
+        globalClass=(GlobalClass) getApplicationContext();
         issueindet=(EditText)findViewById(R.id.issueDetail);
         upload = (ImageButton) findViewById(R.id.upload);
         imageView = (ImageView) findViewById(R.id.imageView);
         submit=(Button)findViewById(R.id.submit);
+        empid.setText(globalClass.getEmpid());
         submit.setOnClickListener(v -> {
 
 
