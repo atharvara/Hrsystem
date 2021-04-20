@@ -34,6 +34,7 @@ import com.example.hrsystem.leavemanagment.MainActivity;
 import com.example.hrsystem.requesttask.RequestPage;
 import com.example.hrsystem.requesttask.requestedtask.viewRequestedTask;
 import com.example.hrsystem.requesttask.viewTask;
+import com.example.hrsystem.support.SupportPage;
 
 import java.io.BufferedReader;
 import java.util.Calendar;
@@ -42,7 +43,7 @@ import java.util.Map;
 
 public class DashboardActivity extends AppCompatActivity {
     private ImageButton imageButton;
-    Button employee,expense,leave,calendeR,Request,chat;
+    Button employee,expense,leave,calendeR,Request,chat,help;
     SharedPreferences sharedPreferences;
     TextView task,requestTxt;
     public int mYear, mMonth, mDay;
@@ -54,6 +55,7 @@ public class DashboardActivity extends AppCompatActivity {
         leave=(Button) findViewById(R.id.leave);
         employee=(Button)findViewById(R.id.employee);
         expense=(Button)findViewById(R.id.expense);
+        help=(Button)findViewById(R.id.help);
         Toolbar toolbar=findViewById(R.id.toolbar);
         toolbar.setTitle("Dashboard");
         setSupportActionBar(toolbar);
@@ -96,6 +98,7 @@ public class DashboardActivity extends AppCompatActivity {
         employee.setOnClickListener(v -> startActivity(new Intent(DashboardActivity.this, EmpList.class)));
         expense.setOnClickListener(v -> startActivity(new Intent(DashboardActivity.this, ExpenseActivity.class)));
         Request.setOnClickListener(v -> startActivity(new Intent(DashboardActivity.this, RequestPage.class)));
+        help.setOnClickListener(v -> startActivity(new Intent(DashboardActivity.this, SupportPage.class)));
         chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
