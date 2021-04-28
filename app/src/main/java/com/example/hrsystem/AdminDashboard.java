@@ -9,10 +9,11 @@ import android.widget.LinearLayout;
 
 import com.example.hrsystem.leavemanagment.ViewApp;
 import com.example.hrsystem.requesttask.TaskPageAdmin;
+import com.example.hrsystem.support.adminhelp.SupportList;
 
 
 public class AdminDashboard extends AppCompatActivity {
-ImageView expense,leave,request;
+ImageView expense,leave,request,help;
 LinearLayout l;
 
     @Override
@@ -25,8 +26,10 @@ LinearLayout l;
         expense=findViewById(R.id.expense);
         leave=findViewById(R.id.leavebtn);
         request=findViewById(R.id.request);
+        help=findViewById(R.id.help);
         expense.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),HRView.class)));
         leave.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), ViewApp.class)));
         request.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), TaskPageAdmin.class)));
+        help.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), SupportList.class)));
     }
 }
