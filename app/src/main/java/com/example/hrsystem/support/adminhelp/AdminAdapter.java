@@ -1,6 +1,7 @@
 package com.example.hrsystem.support.adminhelp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.hrsystem.R;
+import com.example.hrsystem.requesttask.TaskOverview;
 
 import java.util.List;
 
@@ -32,6 +34,22 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.ViewHolder> 
         viewHolder.tv1.setText("Issue:-"+help.getIssue());
         viewHolder.tv2.setText("Employee Id:-"+help.getEmpid());
         viewHolder.tv3.setText(help.getSts());
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String issue=viewHolder.tv1.getText().toString();
+                String id=viewHolder.tv2.getText().toString();
+
+                issue=issue.substring(7);
+                id=id.substring(13);
+                Intent intent= new Intent(context, DetailedPage.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("issue",issue);
+                intent.putExtra("id",id);
+
+                context.startActivity(intent);
+            }
+        });
     }
 
 
