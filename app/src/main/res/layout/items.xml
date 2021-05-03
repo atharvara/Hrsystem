@@ -21,8 +21,8 @@
         android:paddingBottom="10dp"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:id="@+id/email"
-        android:text="Email"
+        android:id="@+id/empid"
+        android:text="EmpID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

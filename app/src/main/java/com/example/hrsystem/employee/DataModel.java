@@ -4,7 +4,7 @@ public class DataModel {
 
     @SerializedName("id") private int Id;
     @SerializedName("name") private String Name;
-    @SerializedName("email") private String Email;
+    @SerializedName("username") private String empid;
 
     public int getId() {
         return Id;
@@ -14,7 +14,7 @@ public class DataModel {
         return Name;
     }
 
-    public String getEmail() {
-        return Email;
+    public String getEmpid() {
+        return empid;
     }
 }
