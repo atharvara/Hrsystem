@@ -91,6 +91,7 @@ public class viewRequestedTask extends AppCompatActivity {
                         Task.setTask(jo.getString("task"));
                         Task.setDueDate(jo.getString("dueDate"));
                         Task.setSts(jo.getString("sts"));
+                        Task.setRequestName(jo.getString("requester"));
                         taskList.add(Task);
                     }
                 } catch (Exception ex) {

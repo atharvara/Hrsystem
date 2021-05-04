@@ -24,8 +24,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RequestPage extends AppCompatActivity {
-    String task,dueD,Sts;
-    TextView Task,dueDate,sts;
+    String task,dueD,Sts,requesterS;
+    TextView Task,dueDate,sts,requester;
     GlobalClass globalClass;
     String EmpId;
     Button decline,accept;
@@ -40,9 +40,12 @@ public class RequestPage extends AppCompatActivity {
         sts=findViewById(R.id.sts);
         dueD=getIntent().getStringExtra("due");
         Sts=getIntent().getStringExtra("Sts");
+        requesterS=getIntent().getStringExtra("requester");
         Task=(TextView)findViewById(R.id.task);
         sts.setText("Status:-"+Sts);
         dueDate=(TextView)findViewById(R.id.dueDate);
+        requester=findViewById(R.id.requesterName);
+        requester.setText("Requester Name:-"+requesterS);
         Task.setText("Task:-"+" "+task);
         dueDate.setText("Due Date:-"+dueD);
 

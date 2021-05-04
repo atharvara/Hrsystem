@@ -39,20 +39,23 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.ViewHold
         viewHolder.tv1.setText("Task:-"+requestModel.getTask());
         viewHolder.tv2.setText("Due Date:-"+requestModel.getDueDate());
         viewHolder.tv3.setText(requestModel.getSts());
+        viewHolder.tv4.setText("Requester:-"+requestModel.getRequestName());
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String task=viewHolder.tv1.getText().toString();
                 String due=viewHolder.tv2.getText().toString();
                 String sts=viewHolder.tv3.getText().toString();
+                String requester=viewHolder.tv4.getText().toString();
                 due=due.substring(10);
                 task=task.substring(6);
+                requester=requester.substring(11);
                 Intent intent= new Intent(context,RequestPage.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("task",task);
                 intent.putExtra("due",due);
                 intent.putExtra("Sts",sts);
-
+                intent.putExtra("requester",requester);
                 context.startActivity(intent);
             }
         });
@@ -64,12 +67,13 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView tv1, tv2,tv3;
+        public TextView tv1, tv2,tv3,tv4;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tv1=itemView.findViewById(R.id.taskE);
             tv2=itemView.findViewById(R.id.dueDate);
             tv3=itemView.findViewById(R.id.status);
+            tv4=itemView.findViewById(R.id.RequesterName);
         }
     }
 }
