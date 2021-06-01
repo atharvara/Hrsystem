@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -26,23 +27,28 @@ import java.util.Objects;
 
 public class RegistrationActivity extends AppCompatActivity {
     EditText fullName,userName,emailAddress,password;
-    Button register;
+    TextView register,login;
     GlobalClass globalClass;
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-        Toolbar toolbar=findViewById(R.id.toolbar);
+       /* Toolbar toolbar=findViewById(R.id.toolbar);
         toolbar.setTitle("Register");
-        setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);*/
         globalClass=new GlobalClass();
-
+        login=findViewById(R.id.togotologin);
         fullName = findViewById(R.id.fullname);
         userName = findViewById(R.id.username);
         emailAddress = findViewById(R.id.email);
         password = findViewById(R.id.password);
-
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RegistrationActivity.this,LoginActivity.class));
+            }
+        });
 
         register = findViewById(R.id.signin);
         register.setOnClickListener(new View.OnClickListener() {

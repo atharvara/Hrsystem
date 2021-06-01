@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,9 +31,9 @@ public class LoginActivity extends AppCompatActivity {
     private TextView textView;
     private EditText username;
     private EditText password;
-    private Button login;
+    private TextView login;
     CheckBox checkedStatus;
-
+    ImageButton back;
     SharedPreferences sharedPreferences;
     GlobalClass globalClass;
     @Override
@@ -40,9 +41,18 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         globalClass=(GlobalClass)getApplicationContext();
         setContentView(R.layout.activity_login);
-        Toolbar toolbar=findViewById(R.id.toolbar);
+      /*  Toolbar toolbar=findViewById(R.id.toolbar);
         toolbar.setTitle("Login");
-        setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);*/
+        //back=findViewById(R.id.back);
+       /* back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                finish();
+
+            }
+        });*/
         textView = (TextView) findViewById(R.id.togotoregister);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override

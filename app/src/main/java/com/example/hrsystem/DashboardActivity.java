@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -48,12 +49,14 @@ public class DashboardActivity extends AppCompatActivity {
     TextView task,requestTxt;
     public int mYear, mMonth, mDay;
     GlobalClass globalClass;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
         leave=(Button) findViewById(R.id.leave);
         employee=(Button)findViewById(R.id.employee);
+
         expense=(Button)findViewById(R.id.expense);
         help=(Button)findViewById(R.id.help);
         Toolbar toolbar=findViewById(R.id.toolbar);
@@ -212,4 +215,5 @@ public class DashboardActivity extends AppCompatActivity {
         MySingleton.getmInstance(DashboardActivity.this).addToRequestQueue(request);
 
     }
+
 }
