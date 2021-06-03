@@ -8,45 +8,87 @@
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar"/>
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/rel"
+        android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="200dp"
         android:weightSum="1"
-        android:layout_marginTop="45dp"
         android:background="@drawable/gradient_toolbar">
         <ImageButton
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:id="@+id/pp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:background="@drawable/pp"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:layout_marginLeft="130dp"
-            android:layout_marginRight="130dp"
-            >
+            android:layout_marginLeft="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Employee Name"
+            android:layout_below="@+id/pp"
+            android:padding="10dp"
+            android:textSize="18sp"
+            android:textColor="#fff"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"/>
 
-        </ImageButton>
 
 
-    </LinearLayout>
+
+    </RelativeLayout>
+
 
     <TextView
         android:id="@+id/idemp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_below="@id/rel"
+        android:layout_marginTop="10dp"
+        android:textColor="#000"
+        android:layout_marginLeft="10dp"
+        android:fontFamily="@font/poppins_medium"
         android:textSize="20sp"
         android:text="Employee ID:"/>
+    <TextView
+        android:id="@+id/phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/email"
+        android:layout_marginTop="10dp"
+        android:textColor="#000"
+        android:layout_marginLeft="10dp"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="20sp"
+        android:text="Employee Phone:"/>
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idemp"
+        android:layout_marginTop="10dp"
+        android:textColor="#000"
+        android:layout_marginLeft="10dp"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="20sp"
+        android:text="Employee Email Id:"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-
+        android:layout_marginBottom="10dp"
         android:weightSum="2">
         <Button
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:background="@drawable/gradient_drawable"
-
+            android:layout_margin="10dp"
             android:text="Edit"
             android:layout_weight="1"
             android:textColor="#fff"
@@ -57,7 +99,7 @@
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:background="@drawable/gradient_drawable"
-
+            android:layout_margin="10dp"
             android:layout_weight="1"
             android:textStyle="bold"
             android:textColor="#fff"

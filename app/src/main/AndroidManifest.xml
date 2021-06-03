@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".support.adminhelp.DetailedPage"></activity>
+        <activity android:name=".performance.PerformanceActivity"></activity>
+        <activity android:name=".support.adminhelp.DetailedPage" />
         <activity android:name=".support.adminhelp.SupportList" />
         <activity android:name=".support.AppStsHelp" />
         <activity android:name=".support.SupportPage" />

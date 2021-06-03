@@ -34,7 +34,7 @@ public class EmpList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emp_list);
         Toolbar toolbar=findViewById(R.id.toolbar);
-        toolbar.setTitle("Leave Application");
+        toolbar.setTitle("Employee Search");
         setSupportActionBar(toolbar);
         progressBar = findViewById(R.id.prograss);
         recyclerView = findViewById(R.id.recyclerView);

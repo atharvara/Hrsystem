@@ -32,6 +32,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.example.hrsystem.employee.EmpList;
 import com.example.hrsystem.expense.ExpenseActivity;
 import com.example.hrsystem.leavemanagment.MainActivity;
+import com.example.hrsystem.performance.PerformanceActivity;
 import com.example.hrsystem.requesttask.RequestPage;
 import com.example.hrsystem.requesttask.requestedtask.viewRequestedTask;
 import com.example.hrsystem.requesttask.viewTask;
@@ -44,7 +45,7 @@ import java.util.Map;
 
 public class DashboardActivity extends AppCompatActivity {
     private ImageButton imageButton;
-    Button employee,expense,leave,calendeR,Request,chat,help;
+    Button employee,expense,leave,calendeR,Request,chat,help,performance;
     SharedPreferences sharedPreferences;
     TextView task,requestTxt;
     public int mYear, mMonth, mDay;
@@ -56,7 +57,7 @@ public class DashboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
         leave=(Button) findViewById(R.id.leave);
         employee=(Button)findViewById(R.id.employee);
-
+        performance=findViewById(R.id.performance);
         expense=(Button)findViewById(R.id.expense);
         help=(Button)findViewById(R.id.help);
         Toolbar toolbar=findViewById(R.id.toolbar);
@@ -102,6 +103,7 @@ public class DashboardActivity extends AppCompatActivity {
         expense.setOnClickListener(v -> startActivity(new Intent(DashboardActivity.this, ExpenseActivity.class)));
         Request.setOnClickListener(v -> startActivity(new Intent(DashboardActivity.this, RequestPage.class)));
         help.setOnClickListener(v -> startActivity(new Intent(DashboardActivity.this, SupportPage.class)));
+        performance.setOnClickListener(v -> startActivity(new Intent(DashboardActivity.this, PerformanceActivity.class)));
         chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
