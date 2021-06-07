@@ -1,5 +1,6 @@
 package com.example.hrsystem.expense;
 
+import android.app.AlertDialog;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,16 +19,19 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Images.Media;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -54,14 +58,14 @@ import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
 
 public class ExpenseActivity extends AppCompatActivity {
-    Button submit, viewu, empview, upload;
+    Button submit, viewu, empview;
     EditText  emp_name, payment;
     String Semp_id, Semp_name, Spayment,uploadImage;
     ImageView imageView;
     Bitmap bitmap;
     private Uri filePath;
     private static String img[];
-
+ImageButton  upload;
     private int PICK_IMAGE_REQUEST = 1;
 GlobalClass g;
 
@@ -79,7 +83,7 @@ GlobalClass g;
         toolbar.setTitle("Expense");
         setSupportActionBar(toolbar);
 
-        upload = (Button) findViewById(R.id.upload);
+        upload = (ImageButton) findViewById(R.id.upload);
         imageView = (ImageView) findViewById(R.id.imageView);
 
         submit.setOnClickListener(v -> {
@@ -151,7 +155,8 @@ GlobalClass g;
         StringRequest request = new StringRequest(Request.Method.POST, uRl, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(ExpenseActivity.this, response, Toast.LENGTH_SHORT).show();
+
+                showCustomDialog(response);
                 progressDialog.dismiss();
             }
 
@@ -176,6 +181,36 @@ GlobalClass g;
 
         request.setRetryPolicy(new DefaultRetryPolicy(30000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         MySingleton.getmInstance(ExpenseActivity.this).addToRequestQueue(request);
+
+    }
+    private void showCustomDialog(String response) {
+        //before inflating the custom alert dialog layout, we will get the current activity viewgroup
+        ViewGroup viewGroup = findViewById(android.R.id.content);
+
+        //then we will inflate the custom alert dialog xml that we created
+        View dialogView = LayoutInflater.from(this).inflate(R.layout.my_dialog, viewGroup, false);
+
+
+        //Now we need an AlertDialog.Builder object
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+
+        //setting the view of the builder to our custom view that we already inflated
+        builder.setView(dialogView);
+
+        //finally creating the alert dialog and displaying it
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+        TextView txt= dialogView.findViewById(R.id.txtalert);
+        txt.setText(response);
+
+        Button btn=dialogView.findViewById(R.id.buttonOk);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
 
     }
 }
