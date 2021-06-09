@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private String sendUrl="https://shinetech.site/shinetech.site/hrmskbp/leave/getData.php";
     private RequestQueue requestQueue;
     private  static  final  String TAG=MainActivity.class.getSimpleName();
-    int sucess;
+
     private String TAG_SUCESS="sucess";
     private String TAG_MESSAGE="message";
     private String tag_json_obj="json_obj_req";

@@ -1,5 +1,6 @@
 package com.example.hrsystem;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -13,10 +14,12 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
@@ -45,11 +48,12 @@ import java.util.Map;
 
 public class DashboardActivity extends AppCompatActivity {
     private ImageButton imageButton;
-    Button employee,expense,leave,calendeR,Request,chat,help,performance;
+    Button employee,expense,leave,calendeR,Request,chat,help,performance,Compe,attend,hrd,report,reportDash;
     SharedPreferences sharedPreferences;
     TextView task,requestTxt;
     public int mYear, mMonth, mDay;
     GlobalClass globalClass;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,9 +72,39 @@ public class DashboardActivity extends AppCompatActivity {
         Request=(Button)findViewById(R.id.request);
         task=(TextView)findViewById(R.id.task);
         requestTxt= findViewById(R.id.requested);
+        Compe=findViewById(R.id.compen);
+        progressDialog = new ProgressDialog(DashboardActivity.this);
+        progressDialog.setContentView(R.layout.progreess_dialog);
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         globalClass=(GlobalClass)getApplicationContext();
-
-
+        attend=findViewById(R.id.attend);
+        report=findViewById(R.id.report);
+        hrd=findViewById(R.id.hrd);
+        reportDash=findViewById(R.id.formdash);
+        reportDash.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showCustomDialog();
+            }
+        });
+        attend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showCustomDialog();
+            }
+        });
+        hrd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showCustomDialog();
+            }
+        });
+        report.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showCustomDialog();
+            }
+        });
         findTask(globalClass.getEmpid());
         findRequest(globalClass.getEmpid());
         sharedPreferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
@@ -114,6 +148,10 @@ public class DashboardActivity extends AppCompatActivity {
                 startActivity(intentWhatsapp);
             }
         });
+        Compe.setOnClickListener(v -> {
+            showCustomDialog();
+        });
+
     }
     @Override
     protected void onResume() {
@@ -148,11 +186,7 @@ public class DashboardActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     public void findTask(String Emp_id){
-        final ProgressDialog progressDialog = new ProgressDialog(DashboardActivity.this);
-        progressDialog.setTitle("Wait");
-        progressDialog.setCancelable(false);
-        progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.setIndeterminate(false);
+
         progressDialog.show();
         String uRl = "https://shinetech.site/shinetech.site/hrmskbp/RequestTask/countTask.php";
         StringRequest request = new StringRequest(com.android.volley.Request.Method.POST, uRl, new Response.Listener<String>() {
@@ -183,11 +217,6 @@ public class DashboardActivity extends AppCompatActivity {
 
     }
     public void findRequest(String Emp_id){
-        final ProgressDialog progressDialog = new ProgressDialog(DashboardActivity.this);
-        progressDialog.setTitle("Wait");
-        progressDialog.setCancelable(false);
-        progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.setIndeterminate(false);
         progressDialog.show();
         String uRl = "https://shinetech.site/shinetech.site/hrmskbp/RequestTask/countRequest.php";
         StringRequest request = new StringRequest(com.android.volley.Request.Method.POST, uRl, new Response.Listener<String>() {
@@ -215,6 +244,34 @@ public class DashboardActivity extends AppCompatActivity {
 
         request.setRetryPolicy(new DefaultRetryPolicy(30000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         MySingleton.getmInstance(DashboardActivity.this).addToRequestQueue(request);
+
+    }
+    private void showCustomDialog() {
+        //before inflating the custom alert dialog layout, we will get the current activity viewgroup
+        ViewGroup viewGroup = findViewById(android.R.id.content);
+
+        //then we will inflate the custom alert dialog xml that we created
+        View dialogView = LayoutInflater.from(this).inflate(R.layout.under_construction, viewGroup, false);
+
+
+        //Now we need an AlertDialog.Builder object
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+
+        //setting the view of the builder to our custom view that we already inflated
+        builder.setView(dialogView);
+
+        //finally creating the alert dialog and displaying it
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
+        Button btn=dialogView.findViewById(R.id.buttonOk);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
 
     }
 

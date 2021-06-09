@@ -299,6 +299,7 @@
                     android:gravity="center"
                     android:orientation="vertical">
                     <Button
+                        android:id="@+id/compen"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:background="@drawable/compe_nsation"
@@ -329,6 +330,7 @@
                     android:gravity="center"
                     android:orientation="vertical">
                     <Button
+                        android:id="@+id/attend"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:background="@drawable/attendance"/>
@@ -389,6 +391,7 @@
                     android:gravity="center"
                     android:orientation="vertical">
                     <Button
+                        android:id="@+id/hrd"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:background="@drawable/hr_document"
@@ -511,6 +514,7 @@
                     android:gravity="center"
                     android:orientation="vertical">
                     <Button
+                        android:id="@+id/report"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:background="@drawable/r_eport"/>
@@ -555,6 +559,7 @@
                     android:gravity="center_horizontal"
                     android:orientation="vertical">
                     <Button
+                        android:id="@+id/formdash"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:background="@drawable/forma_dashboard"/>
