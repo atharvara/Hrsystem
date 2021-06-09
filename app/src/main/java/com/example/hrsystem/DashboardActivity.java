@@ -54,7 +54,7 @@ public class DashboardActivity extends AppCompatActivity {
     public int mYear, mMonth, mDay;
     GlobalClass globalClass;
     ProgressDialog progressDialog;
-
+    CustomProgressDialog customProgressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,9 +73,11 @@ public class DashboardActivity extends AppCompatActivity {
         task=(TextView)findViewById(R.id.task);
         requestTxt= findViewById(R.id.requested);
         Compe=findViewById(R.id.compen);
-        progressDialog = new ProgressDialog(DashboardActivity.this);
+       customProgressDialog=new CustomProgressDialog(DashboardActivity.this);
+       /* progressDialog = new ProgressDialog(DashboardActivity.this);
+
         progressDialog.setContentView(R.layout.progreess_dialog);
-        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);*/
         globalClass=(GlobalClass)getApplicationContext();
         attend=findViewById(R.id.attend);
         report=findViewById(R.id.report);
@@ -187,12 +189,12 @@ public class DashboardActivity extends AppCompatActivity {
     }
     public void findTask(String Emp_id){
 
-        progressDialog.show();
+        customProgressDialog.show();
         String uRl = "https://shinetech.site/shinetech.site/hrmskbp/RequestTask/countTask.php";
         StringRequest request = new StringRequest(com.android.volley.Request.Method.POST, uRl, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                progressDialog.dismiss();
+                customProgressDialog.dismiss();
                 task.setText(response);
             }
 
@@ -200,7 +202,7 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(DashboardActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
-                progressDialog.dismiss();
+                customProgressDialog.dismiss();
             }
         }) {
             @Override
@@ -217,12 +219,12 @@ public class DashboardActivity extends AppCompatActivity {
 
     }
     public void findRequest(String Emp_id){
-        progressDialog.show();
+        customProgressDialog.show();
         String uRl = "https://shinetech.site/shinetech.site/hrmskbp/RequestTask/countRequest.php";
         StringRequest request = new StringRequest(com.android.volley.Request.Method.POST, uRl, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                progressDialog.dismiss();
+                customProgressDialog.dismiss();
                 requestTxt.setText(response);
             }
 
@@ -230,7 +232,7 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(DashboardActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
-                progressDialog.dismiss();
+                customProgressDialog.dismiss();
             }
         }) {
             @Override
