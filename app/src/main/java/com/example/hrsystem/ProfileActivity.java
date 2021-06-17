@@ -30,7 +30,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        
         setContentView(R.layout.activity_profile);
         TextView t=(TextView)findViewById(R.id.idemp);
         emp_name=findViewById(R.id.emp_name);

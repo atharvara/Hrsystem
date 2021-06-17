@@ -8,12 +8,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.hrsystem.leavemanagment.ViewApp;
+import com.example.hrsystem.performance.AdminEmpPerformance;
 import com.example.hrsystem.requesttask.TaskPageAdmin;
 import com.example.hrsystem.support.adminhelp.SupportList;
 
 
 public class AdminDashboard extends AppCompatActivity {
-ImageView expense,leave,request,help;
+ImageView expense,leave,request,help,perfor;
 LinearLayout l;
 
     @Override
@@ -27,9 +28,11 @@ LinearLayout l;
         leave=findViewById(R.id.leavebtn);
         request=findViewById(R.id.request);
         help=findViewById(R.id.help);
+        perfor=findViewById(R.id.perfor);
         expense.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),HRView.class)));
         leave.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), ViewApp.class)));
         request.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), TaskPageAdmin.class)));
         help.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), SupportList.class)));
+        perfor.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), AdminEmpPerformance.class)));
     }
 }

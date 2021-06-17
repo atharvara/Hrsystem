@@ -19,9 +19,15 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
+
 
         >
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <EditText
             android:id="@+id/txtUsername"
@@ -31,7 +37,13 @@
             android:hint="Employee Name"
             android:inputType="textPersonName"
             />
-
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_dept"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <EditText
             android:id="@+id/empdept"
             android:layout_width="match_parent"
@@ -43,6 +55,13 @@
             android:hint="Department"
             android:inputType="text"
 />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <EditText
             android:id="@+id/email"
             android:layout_width="match_parent"
@@ -53,7 +72,13 @@
             android:hint="Email"
             android:inputType="textEmailAddress"
             />
-
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_phn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <EditText
             android:id="@+id/empphone"
             android:layout_width="match_parent"
@@ -63,7 +88,13 @@
             android:hint="Phone Number"
             android:inputType="phone"
             />
-
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_reason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <EditText
             android:id="@+id/leavereason"
             android:layout_width="match_parent"
@@ -72,14 +103,15 @@
             android:inputType="text"
             android:hint="Reason of Leave"
             />
-
+        </android.support.design.widget.TextInputLayout>
 
         <TextView
             android:id="@+id/selectdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="22dp"
-            android:layout_marginLeft="8dp"
+            android:layout_margin="10dp"
+
             android:layout_marginTop="8dp"
             android:textColor="@color/colorAccent"
             android:textStyle="bold"
@@ -90,9 +122,9 @@
             android:id="@+id/startdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_margin="10dp"
             android:layout_marginTop="20dp"
-            android:textSize="22dp"
+            android:textSize="18dp"
             android:background="@drawable/gradient_drawable"
             android:textColor="#FFF"
             android:text="From" />
@@ -107,7 +139,7 @@
             android:layout_marginLeft="125dp"
             android:layout_marginTop="8dp"
             android:text="Start Date "
-            android:textSize="20dp"
+            android:textSize="18dp"
            />
 
         <Button
@@ -115,10 +147,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="15dp"
+            android:layout_margin="10dp"
             android:background="@drawable/gradient_drawable"
             android:textColor="#FFF"
-            android:textSize="22dp"
+            android:textSize="18dp"
             android:text="To" />
 
         <EditText
@@ -130,7 +162,7 @@
             android:layout_marginLeft="125dp"
             android:layout_marginTop="20dp"
             android:text="End Date "
-            android:textSize="20dp"
+            android:textSize="18dp"
             />
 
         <TextView
@@ -147,6 +179,7 @@
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_below="@+id/dbox"
+            android:layout_margin="10dp"
             android:layout_marginTop="5dp">
 
 
@@ -165,7 +198,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:text="Submit"
-            android:textSize="20dp"
+            android:textColor="#fff"
+            android:textSize="18dp"
+            android:layout_margin="10dp"
             android:background="@drawable/gradient_drawable"
           />
         <Button
@@ -174,7 +209,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="View Status"
-            android:textSize="20dp"
+            android:layout_margin="10dp"
+            android:textColor="#fff"
+            android:textSize="18dp"
             android:background="@drawable/gradient_drawable"
             android:layout_marginBottom="64dp"
 
