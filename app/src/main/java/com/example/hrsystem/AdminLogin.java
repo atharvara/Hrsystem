@@ -8,20 +8,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class AdminLogin extends AppCompatActivity {
-private Button login;
+private TextView login;
 private EditText email;
 private EditText password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_login);
-        Toolbar toolbar=findViewById(R.id.toolbar);
-        toolbar.setTitle("Admin Login");
-        setSupportActionBar(toolbar);
-
+      
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         login=findViewById(R.id.login);
@@ -37,10 +35,8 @@ private EditText password;
             startActivity(intent);
             finish();
 
-        }else if (email!=("admin@gmail.com")){
-            Toast.makeText(AdminLogin.this,"Email Is wrong",Toast.LENGTH_LONG).show();
         }else{
-            Toast.makeText(AdminLogin.this,"Password Is wrong",Toast.LENGTH_LONG).show();
+            Toast.makeText(AdminLogin.this,"Invalid Credentials",Toast.LENGTH_LONG).show();
         }
     }
 }
