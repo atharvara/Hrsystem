@@ -14,7 +14,7 @@
 
     <GridLayout
         android:layout_width="match_parent"
-        android:rowCount="2"
+        android:rowCount="3"
         android:columnCount="3"
         android:alignmentMode="alignMargins"
         android:columnOrderPreserved="false"
@@ -178,6 +178,68 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Performance"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textAlignment="center"
+                    />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="6dp"
+            android:layout_margin="12dp"
+            app:cardCornerRadius="12dp">
+            <LinearLayout
+                android:padding="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/adminPass"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/changepassword"
+
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Change Credentials"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textAlignment="center"
+                    />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="6dp"
+            android:layout_margin="12dp"
+            app:cardCornerRadius="12dp">
+            <LinearLayout
+                android:padding="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/reportbtn"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/r_eport"
+
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Reports"
                     android:textStyle="bold"
                     android:textSize="15sp"
                     android:textAlignment="center"

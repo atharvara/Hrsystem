@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 dpd = new DatePickerDialog( MainActivity.this, new DatePickerDialog.OnDateSetListener(){
                     @Override
                     public void onDateSet(DatePicker datePicker, int mYear,int mMonth, int mDay){
-                        sdate.setText(mDay + "/" +(mMonth+1) + "/" +mYear );
+                        sdate.setText(mYear + "-" +(mMonth+1) + "/" +mDay );
                     }
                 }, day, month,year);
                 dpd.show();
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                 dpd = new DatePickerDialog( MainActivity.this, new DatePickerDialog.OnDateSetListener(){
                     @Override
                     public void onDateSet(DatePicker datePicker, int mYear,int mMonth, int mDay){
-                        edate.setText(mDay + "/" +(mMonth+1) + "/" +mYear );
+                        edate.setText(mYear + "-" +(mMonth+1) + "/" +mDay );
                     }
                 }, day, month,year);
                 dpd.show();

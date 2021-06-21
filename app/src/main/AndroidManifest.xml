@@ -14,7 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".performance.AdminPerformanceView"></activity>
+        <activity android:name=".leavemanagment.admin.AdminReport"></activity>
+        <activity android:name=".adminpass.CredentialsChange" />
+        <activity android:name=".support.DetailedPageEmp" />
+        <activity android:name=".performance.AdminPerformanceView" />
         <activity android:name=".performance.AdminEmpPerformance" />
         <activity android:name=".performance.PerformanceActivity" />
         <activity android:name=".support.adminhelp.DetailedPage" />

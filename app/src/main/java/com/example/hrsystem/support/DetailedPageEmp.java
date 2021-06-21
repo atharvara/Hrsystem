@@ -1,4 +1,4 @@
-package com.example.hrsystem.support.adminhelp;
+package com.example.hrsystem.support;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -10,7 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -19,40 +18,32 @@ import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
-import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.example.hrsystem.HRView;
 import com.example.hrsystem.MySingleton;
 import com.example.hrsystem.R;
 import com.example.hrsystem.fullImage;
-import com.example.hrsystem.requesttask.AllDataTaskModel;
-import com.example.hrsystem.requesttask.TaskOverview;
-import com.example.hrsystem.support.SupportPage;
+import com.example.hrsystem.support.adminhelp.DetailedPage;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.io.InputStream;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DetailedPage extends AppCompatActivity {
+public class DetailedPageEmp extends AppCompatActivity {
     String issue, empid;
     TextView issueE, empi, issueindetail, ans;
     ImageView imageView;
     String image;
-    EditText answ;
-    String ansS;
-    ImageButton send;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detailed_page);
+        setContentView(R.layout.activity_detailed_page_emp);
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Support");
         setSupportActionBar(toolbar);
@@ -64,27 +55,9 @@ public class DetailedPage extends AppCompatActivity {
         issueindetail = (TextView) findViewById(R.id.issueDetail);
         ans = (TextView) findViewById(R.id.ans);
         imageView = findViewById(R.id.imageView);
-        answ=findViewById(R.id.ansE);
-        send=(ImageButton) findViewById(R.id.btnSend);
-        send.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ansS=answ.getText().toString();
-                if (ansS!=null){
-                    String issuee=issue.toString();
-                    String emp=empid.toString();
-                    String sts="Closed";
-                    sendAns(ansS,issuee,emp,sts);
-                }
-                else{
-                    Toast.makeText(DetailedPage.this,"Enter Answer",Toast.LENGTH_LONG).show();
-                }
-            }
-        });
     }
-
     public void sendrequest(String issue, String id) {
-        final ProgressDialog progressDialog = new ProgressDialog(DetailedPage.this);
+        final ProgressDialog progressDialog = new ProgressDialog(DetailedPageEmp.this);
         progressDialog.setTitle("Receiving Data.......");
         progressDialog.setMessage("Loading Data!");
         progressDialog.setCancelable(false);
@@ -116,7 +89,7 @@ public class DetailedPage extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                ImageLoadTask obj = new ImageLoadTask(image, imageView);
+                DetailedPageEmp.ImageLoadTask obj = new DetailedPageEmp.ImageLoadTask(image, imageView);
                 obj.execute();
 
                 Handler handler = new Handler();
@@ -130,7 +103,7 @@ public class DetailedPage extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(DetailedPage.this, error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(DetailedPageEmp.this, error.toString(), Toast.LENGTH_SHORT).show();
                 progressDialog.dismiss();
             }
         }) {
@@ -145,7 +118,7 @@ public class DetailedPage extends AppCompatActivity {
         };
 
         request.setRetryPolicy(new DefaultRetryPolicy(30000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getmInstance(DetailedPage.this).addToRequestQueue(request);
+        MySingleton.getmInstance(DetailedPageEmp.this).addToRequestQueue(request);
 
     }
 
@@ -172,7 +145,7 @@ public class DetailedPage extends AppCompatActivity {
             } catch (Exception e) {
                 new Thread() {
                     public void run() {
-                        DetailedPage.this.runOnUiThread(new Runnable() {
+                        DetailedPageEmp.this.runOnUiThread(new Runnable() {
                             public void run() {
                                 Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                             }
@@ -190,51 +163,11 @@ public class DetailedPage extends AppCompatActivity {
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent=new Intent(DetailedPage.this, fullImage.class);
+                    Intent intent=new Intent(DetailedPageEmp.this, fullImage.class);
                     intent.putExtra("imageurl",url);
                     startActivity(intent);
                 }
             });
         }
-    }
-    public void sendAns(String ans,String issue,String empid,String sts){
-        final ProgressDialog progressDialog = new ProgressDialog(DetailedPage.this);
-        progressDialog.setTitle("Wait");
-        progressDialog.setCancelable(false);
-        progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.setIndeterminate(false);
-        progressDialog.show();
-        String uRl = "https://shinetech.site/shinetech.site/hrmskbp/Support/answer.php";
-        StringRequest request = new StringRequest(Request.Method.POST, uRl, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Toast.makeText(DetailedPage.this, response, Toast.LENGTH_SHORT).show();
-                progressDialog.dismiss();
-                sendrequest(issue, empid);
-            }
-
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(DetailedPage.this, error.toString(), Toast.LENGTH_SHORT).show();
-                progressDialog.dismiss();
-            }
-        }) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                HashMap<String, String> param = new HashMap<>();
-                param.put("ans", ans);
-                param.put("issue", issue);
-                param.put("empid", empid);
-                param.put("sts", sts);
-
-                return param;
-
-            }
-        };
-
-        request.setRetryPolicy(new DefaultRetryPolicy(30000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getmInstance(DetailedPage.this).addToRequestQueue(request);
-
     }
 }
