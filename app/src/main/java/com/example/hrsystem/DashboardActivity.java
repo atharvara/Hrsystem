@@ -32,6 +32,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.example.hrsystem.Report.BeforeReportActivity;
 import com.example.hrsystem.employee.EmpList;
 import com.example.hrsystem.expense.ExpenseActivity;
 import com.example.hrsystem.leavemanagment.MainActivity;
@@ -104,7 +105,7 @@ public class DashboardActivity extends AppCompatActivity {
         report.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showCustomDialog();
+                startActivity(new Intent(DashboardActivity.this, BeforeReportActivity.class));
             }
         });
         findTask(globalClass.getEmpid());

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".leavemanagment.admin.AdminReport">
+    tools:context=".leavemanagment.empReportLeave">
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar"/>
@@ -15,25 +15,25 @@
         android:weightSum="3"
         android:layout_below="@id/toolbar"
         android:orientation="horizontal">
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/input_layout_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_weight="1"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-        <EditText
-            android:id="@+id/sdate"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:editable="false"
-            android:focusable="false"
-            android:hint="Start Date"
-            android:inputType="textPersonName"
-            />
-    </android.support.design.widget.TextInputLayout>
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <EditText
+                android:id="@+id/sdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:editable="false"
+                android:focusable="false"
+                android:hint="Start Date"
+                android:inputType="textPersonName"
+                />
+        </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
             android:id="@+id/input_layout_name1"
             android:layout_width="match_parent"

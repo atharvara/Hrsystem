@@ -39,7 +39,7 @@ public class PerformanceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_performance);
         Toolbar toolbar=findViewById(R.id.toolbar);
-        toolbar.setTitle("Perfmormance");
+        toolbar.setTitle("Performance");
         setSupportActionBar(toolbar);
         txtProgress = (TextView) findViewById(R.id.txtProgress);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
