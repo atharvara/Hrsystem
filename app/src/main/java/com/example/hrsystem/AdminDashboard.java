@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.example.hrsystem.Report.BeforeAdminReport;
 import com.example.hrsystem.adminpass.CredentialsChange;
 import com.example.hrsystem.leavemanagment.ViewApp;
 import com.example.hrsystem.leavemanagment.admin.AdminReport;
@@ -33,7 +34,7 @@ LinearLayout l;
         help=findViewById(R.id.help);
         report=findViewById(R.id.reportbtn);
         perfor=findViewById(R.id.perfor);
-        report.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), AdminReport.class)));
+        report.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), BeforeAdminReport.class)));
         expense.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),HRView.class)));
         leave.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), ViewApp.class)));
         request.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), TaskPageAdmin.class)));

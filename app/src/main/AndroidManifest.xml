@@ -14,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".leavemanagment.AllDataLeave"></activity>
+        <activity android:name=".Report.BeforeAdminReport"></activity>
+        <activity android:name=".expense.AdminExpenseReport" />
+        <activity android:name=".leavemanagment.AllDataLeave" />
         <activity android:name=".leavemanagment.empReportLeave" />
         <activity android:name=".Report.BeforeReportActivity" />
         <activity android:name=".leavemanagment.admin.AdminReport" />
