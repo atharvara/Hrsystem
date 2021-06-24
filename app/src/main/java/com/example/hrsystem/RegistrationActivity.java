@@ -29,6 +29,7 @@ public class RegistrationActivity extends AppCompatActivity {
     EditText fullName,userName,emailAddress,password;
     TextView register,login;
     GlobalClass globalClass;
+    CustomProgressDialog customProgressDialog;
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class RegistrationActivity extends AppCompatActivity {
         toolbar.setTitle("Register");
         setSupportActionBar(toolbar);*/
         globalClass=new GlobalClass();
+        customProgressDialog=new CustomProgressDialog(RegistrationActivity.this);
         login=findViewById(R.id.togotologin);
         fullName = findViewById(R.id.fullname);
         userName = findViewById(R.id.username);
@@ -72,12 +74,8 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
     private void register(final String fullname, final String username, final String email, final String password){
-        final ProgressDialog progressDialog = new ProgressDialog(RegistrationActivity.this);
-        progressDialog.setTitle("Registering your account");
-        progressDialog.setCancelable(false);
-        progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.setIndeterminate(false);
-        progressDialog.show();
+
+        customProgressDialog.show();
         String uRl = "https://shinetech.site/shinetech.site/hrmskbp/LoginRegistration/signup.php";
         StringRequest request = new StringRequest(Request.Method.POST, uRl, new Response.Listener<String>() {
             @Override
@@ -86,11 +84,11 @@ public class RegistrationActivity extends AppCompatActivity {
                 if (response.equals("You are registered successfully")){
                     Toast.makeText(RegistrationActivity.this, response, Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(RegistrationActivity.this,LoginActivity.class));
-                    progressDialog.dismiss();
+                    customProgressDialog.dismiss();
                     finish();
                 }else {
                     Toast.makeText(RegistrationActivity.this, response, Toast.LENGTH_SHORT).show();
-                    progressDialog.dismiss();
+                    customProgressDialog.dismiss();
                 }
 
             }
@@ -98,7 +96,7 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(RegistrationActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
-                progressDialog.dismiss();
+                customProgressDialog.dismiss();
             }
         }){
             @Override

@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hrsystem.R;
+import com.example.hrsystem.expense.EmpExpenseReport;
 import com.example.hrsystem.leavemanagment.admin.ReportData;
 import com.example.hrsystem.leavemanagment.empReportLeave;
 
@@ -42,8 +43,8 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
             public void onClick(View view) {
                 if (myListData.getDescription()=="Leave Report"){
                     context.startActivity(new Intent(context, empReportLeave.class));
-                }else{
-
+                }else if (myListData.getDescription()=="Expense Report"){
+                    context.startActivity(new Intent(context, EmpExpenseReport.class));
                 }
             }
         });

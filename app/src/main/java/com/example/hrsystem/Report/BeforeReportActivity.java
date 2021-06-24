@@ -15,7 +15,7 @@ public class BeforeReportActivity extends AppCompatActivity {
         setContentView(R.layout.activity_before_report);
         MyListData[] myListData = new MyListData[] {
                 new MyListData("Leave Report",R.drawable.l_eave),
-                new MyListData("Expense", R.drawable.r_eimbursement),
+                new MyListData("Expense Report", R.drawable.r_eimbursement),
         };
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);

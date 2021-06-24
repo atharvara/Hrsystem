@@ -33,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     ImageButton back;
     SharedPreferences sharedPreferences;
     GlobalClass globalClass;
+    CustomProgressDialog customProgressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });*/
+        customProgressDialog=new CustomProgressDialog(LoginActivity.this);
         textView = (TextView) findViewById(R.id.togotoregister);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,12 +95,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private void login(final String username, final String password){
-        final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this);
-        progressDialog.setTitle("Logining your account");
-        progressDialog.setCancelable(false);
-        progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.setIndeterminate(false);
-        progressDialog.show();
+
+        customProgressDialog.show();
         String uRl = "https://shinetech.site/shinetech.site/hrmskbp/LoginRegistration/login.php";
         StringRequest request = new StringRequest(Request.Method.POST, uRl, new Response.Listener<String>() {
             @Override
@@ -121,19 +119,19 @@ public class LoginActivity extends AppCompatActivity {
                     editor.apply();
                     startActivity(new Intent(LoginActivity.this,DashboardActivity.class));
                     finish();
-                    progressDialog.dismiss();
+                    customProgressDialog.dismiss();
 
                 }
                 else {
                     Toast.makeText(LoginActivity.this, response, Toast.LENGTH_SHORT).show();
-                    progressDialog.dismiss();
+                    customProgressDialog.dismiss();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(LoginActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
-                progressDialog.dismiss();
+                customProgressDialog.dismiss();
             }
         }){
             @Override

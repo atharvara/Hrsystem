@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".expense.EmpExpenseReport">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        />
+    <LinearLayout
+        android:layout_below="@id/toolbar"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#ad1457"
+            android:textAlignment="center"
+
+            android:fontFamily="@font/poppins_medium"
+            android:text="Total Expense in Current Month:"
+            />
+        <TextView
+            android:id="@+id/expmonth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:textColor="#000"
+            android:padding="2dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/poppins_medium"
+            android:text=""
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#ad1457"
+            android:textAlignment="center"
+            android:padding="10dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Total Expense in Current Year:"
+            />
+        <TextView
+            android:id="@+id/expyear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:textColor="#000"
+            android:padding="2dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/poppins_medium"
+            android:text=""
+            />
+
+    </LinearLayout>
+</RelativeLayout>
