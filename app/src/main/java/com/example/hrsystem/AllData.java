@@ -116,7 +116,7 @@ public class AllData extends AppCompatActivity {
                     progressDialog.dismiss();
                 } catch (Exception ex) {
 
-                    Toast.makeText(getApplicationContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
+                    System.out.println("Exception"+ex);
                     progressDialog.dismiss();
                 }
             }

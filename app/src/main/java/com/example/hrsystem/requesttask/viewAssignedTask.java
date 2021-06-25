@@ -81,7 +81,7 @@ public class viewAssignedTask extends AppCompatActivity {
                     }
                 } catch (Exception ex) {
 
-                    Toast.makeText(getApplicationContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
+                    System.out.println("Exception"+ex);
                     mShimmerViewContainer.stopShimmerAnimation();
                     mShimmerViewContainer.setVisibility(View.GONE);
                 }
