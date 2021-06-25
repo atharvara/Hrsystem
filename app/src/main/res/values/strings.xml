@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Hr system</string>
     <string name="prefStatus">loginstate</string>
+    <string name="viewtask"> <u>View Assigned Task</u>.</string>
 </resources>

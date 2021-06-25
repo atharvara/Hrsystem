@@ -3,6 +3,7 @@ package com.example.hrsystem.requesttask;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -35,6 +36,7 @@ public class TaskPageAdmin extends AppCompatActivity {
     Button sub;
     int mYear,mMonth,mDay;
     Button btnDatePicker;
+    TextView viewtask;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +49,13 @@ public class TaskPageAdmin extends AppCompatActivity {
         Empid=(EditText)findViewById(R.id.empID);
         sub=(Button)findViewById(R.id.btnSubmit);
         btnDatePicker=(Button)findViewById(R.id.btn_date);
-
+        viewtask=findViewById(R.id.viewTask);
+        viewtask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(TaskPageAdmin.this,viewAssignedTask.class));
+            }
+        });
         btnDatePicker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

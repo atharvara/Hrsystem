@@ -14,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".expense.EmpExpenseReport"></activity>
+        <activity android:name=".requesttask.assignedTaskReport"></activity>
+        <activity android:name=".requesttask.viewAssignedTask" />
+        <activity android:name=".expense.EmpExpenseReport" />
         <activity android:name=".Report.BeforeAdminReport" />
         <activity android:name=".expense.AdminExpenseReport" />
         <activity android:name=".leavemanagment.AllDataLeave" />
