@@ -58,6 +58,7 @@ public class TaskOverview extends AppCompatActivity {
     public void decison(String task,String EmpId,String decision){
         final ProgressDialog progressDialog = new ProgressDialog(TaskOverview.this);
         progressDialog.setTitle("Wait");
+        progressDialog.setMessage("Wait");
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.setIndeterminate(false);

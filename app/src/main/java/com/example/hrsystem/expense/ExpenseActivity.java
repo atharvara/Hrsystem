@@ -147,6 +147,7 @@ GlobalClass g;
     private void pay(String Semp_id, String Semp_name, String Spayment,String uploadImage) {
         final ProgressDialog progressDialog = new ProgressDialog(ExpenseActivity.this);
         progressDialog.setTitle("Wait");
+        progressDialog.setMessage("Sending Data...");
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.setIndeterminate(false);

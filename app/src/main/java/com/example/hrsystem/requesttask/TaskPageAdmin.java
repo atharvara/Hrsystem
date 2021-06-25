@@ -121,6 +121,7 @@ public class TaskPageAdmin extends AppCompatActivity {
     public void sendData(String txttask,String EmpID,String txtDue){
         final ProgressDialog progressDialog = new ProgressDialog(TaskPageAdmin.this);
         progressDialog.setTitle("Sending Request");
+        progressDialog.setMessage("Wait.....");
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.setIndeterminate(false);

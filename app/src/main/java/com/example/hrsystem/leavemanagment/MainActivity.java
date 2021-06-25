@@ -136,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
     private  void sendData(final String empid,final String username,final String empdept,final String email,final String phoneno,final String Reasonofleave,final String sdate,final String edate,final String descriptionbox){
         final ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
         progressDialog.setTitle("Wait");
+        progressDialog.setMessage("Sending Data...");
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.setIndeterminate(false);

@@ -89,6 +89,7 @@ public class ViewApp extends AppCompatActivity {
     public void fetch_data_into_array(View view) {
         final ProgressDialog progressDialog = new ProgressDialog(ViewApp.this);
         progressDialog.setTitle("Loading");
+        progressDialog.setMessage("Receiving Data");
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.setIndeterminate(false);

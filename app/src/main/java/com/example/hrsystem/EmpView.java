@@ -77,6 +77,7 @@ public class EmpView extends AppCompatActivity {
     private void Emp(String Semp_id){
         final ProgressDialog progressDialog = new ProgressDialog(EmpView.this);
         progressDialog.setTitle("Wait");
+        progressDialog.setMessage("Receiving Data");
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.setIndeterminate(false);
