@@ -16,7 +16,7 @@
         android:layout_centerHorizontal="true"
         android:padding="10dp"
         android:layout_margin="10dp"
-        android:text="Credentials Reset Of Admin Login"
+        android:text="Credentials Reset Of Employee Login"
         android:textSize="20sp"
         android:fontFamily="@font/poppins_medium"
         android:textColor="@color/colorPrimary"
