@@ -559,14 +559,14 @@
                     android:gravity="center_horizontal"
                     android:orientation="vertical">
                     <Button
-                        android:id="@+id/formdash"
+                        android:id="@+id/changepass"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:background="@drawable/forma_dashboard"/>
+                        android:background="@drawable/changepassword"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Form Dashboard"
+                        android:text="Change Password"
                         android:textSize="15dp"
                         android:textColor="@color/black"
                         android:textAlignment="center"/>

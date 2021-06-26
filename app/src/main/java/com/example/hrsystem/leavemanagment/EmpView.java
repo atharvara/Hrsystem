@@ -86,7 +86,7 @@ public class EmpView extends AppCompatActivity {
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.setIndeterminate(false);
         progressDialog.show();
-        String uRl = "https://shinetech.site/shinetech.site/hrmskbp/leave/getUser.php";
+        String uRl = "https://shinetech.site/shinetech.site/hrmskbp/leave/getEmpView.php";
         StringRequest request = new StringRequest(Request.Method.POST, uRl, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

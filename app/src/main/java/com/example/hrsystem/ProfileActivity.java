@@ -29,13 +29,14 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Toolbar toolbar=findViewById(R.id.toolbar);
+        toolbar.setTitle("Profile");
         setSupportActionBar(toolbar);
         
         setContentView(R.layout.activity_profile);
         TextView t=(TextView)findViewById(R.id.idemp);
         emp_name=findViewById(R.id.emp_name);
         emp_email=findViewById(R.id.email);
-        emp_phone=findViewById(R.id.phone);
+       // emp_phone=findViewById(R.id.phone);
         GlobalClass g=(GlobalClass)getApplicationContext();
         customProgressDialog=new CustomProgressDialog(ProfileActivity.this);
         t.setText("Employee Id: "+g.getEmpid());
@@ -58,12 +59,12 @@ public class ProfileActivity extends AppCompatActivity {
                         jo = ja.getJSONObject(i);
                         emp_name.setText("Name :- "+jo.getString("fullname"));
                         emp_email.setText(jo.getString("email"));
-                        if(jo.getString("phn").length()!=0) {
+                       /* if(jo.getString("phn").length()!=0) {
                             emp_phone.setText(jo.getString("phn"));
                         }
                         else{
                             emp_phone.setText("No Number");
-                        }
+                        }*/
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

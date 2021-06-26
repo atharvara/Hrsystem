@@ -65,7 +65,7 @@
         android:fontFamily="@font/poppins_medium"
         android:textSize="18sp"
         />
-    <TextView
+   <!-- <TextView
         android:id="@+id/phn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -86,7 +86,7 @@
         android:layout_marginLeft="10dp"
         android:fontFamily="@font/poppins_medium"
         android:textSize="18sp"
-        />
+        />-->
     <TextView
         android:id="@+id/emailtxt"
         android:layout_width="match_parent"

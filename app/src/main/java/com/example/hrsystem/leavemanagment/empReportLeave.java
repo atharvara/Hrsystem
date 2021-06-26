@@ -188,7 +188,7 @@ public class empReportLeave extends AppCompatActivity {
                     }
                 } catch (Exception ex) {
 
-                    Toast.makeText(getApplicationContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
+                    System.out.println("Exception:-"+ex);
                 }
                 adapter.notifyDataSetChanged();
                 // progressDialog.dismiss();

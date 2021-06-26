@@ -49,7 +49,7 @@ import java.util.Map;
 
 public class DashboardActivity extends AppCompatActivity {
     private ImageButton imageButton;
-    Button employee,expense,leave,calendeR,Request,chat,help,performance,Compe,attend,hrd,report,reportDash;
+    Button employee,expense,leave,calendeR,Request,chat,help,performance,Compe,attend,hrd,report,reportDash,changepass;
     SharedPreferences sharedPreferences;
     TextView task,requestTxt;
     public int mYear, mMonth, mDay;
@@ -73,6 +73,7 @@ public class DashboardActivity extends AppCompatActivity {
         Request=(Button)findViewById(R.id.request);
         task=(TextView)findViewById(R.id.task);
         requestTxt= findViewById(R.id.requested);
+        changepass=findViewById(R.id.changepass);
         Compe=findViewById(R.id.compen);
        customProgressDialog=new CustomProgressDialog(DashboardActivity.this);
        /* progressDialog = new ProgressDialog(DashboardActivity.this);
@@ -83,11 +84,17 @@ public class DashboardActivity extends AppCompatActivity {
         attend=findViewById(R.id.attend);
         report=findViewById(R.id.report);
         hrd=findViewById(R.id.hrd);
-        reportDash=findViewById(R.id.formdash);
+       /* reportDash=findViewById(R.id.formdash);
         reportDash.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showCustomDialog();
+            }
+        });*/
+        changepass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DashboardActivity.this, empChangePass.class));
             }
         });
         attend.setOnClickListener(new View.OnClickListener() {
